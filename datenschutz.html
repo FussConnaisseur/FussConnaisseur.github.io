@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -63,7 +64,9 @@ body {
 .background {
     position: fixed;
     inset: 0;
+
     z-index: -5;
+
     pointer-events: none;
 
     background:
@@ -103,6 +106,7 @@ header {
     align-items: center;
 
     position: relative;
+
     z-index: 10;
 }
 
@@ -136,7 +140,8 @@ header {
     background:
         rgba(15,10,15,.55);
 
-    backdrop-filter: blur(10px);
+    backdrop-filter:
+        blur(10px);
 
     transition: .25s;
 }
@@ -144,7 +149,8 @@ header {
 .back-button:hover {
     color: white;
 
-    border-color: #d770a6;
+    border-color:
+        #d770a6;
 
     background:
         rgba(215,112,166,.08);
@@ -152,7 +158,7 @@ header {
 
 
 /* ==========================================
-   MAIN
+   HAUPTBEREICH
 ========================================== */
 
 main {
@@ -193,8 +199,11 @@ main {
         blur(22px);
 
     box-shadow:
-        0 30px 80px rgba(0,0,0,.55),
-        inset 0 1px 0 rgba(255,255,255,.07);
+        0 30px 80px
+        rgba(0,0,0,.55),
+
+        inset 0 1px 0
+        rgba(255,255,255,.07);
 
     animation:
         cardIn .8s ease;
@@ -215,6 +224,7 @@ main {
         transform:
             translateY(0);
     }
+
 }
 
 .card::before {
@@ -323,8 +333,6 @@ h1 span {
 
 .info strong {
     color: #f2e6ed;
-
-    font-weight: normal;
 }
 
 
@@ -479,12 +487,14 @@ footer a:hover {
     <p class="intro">
         Informationen über die Verarbeitung
         personenbezogener Daten beim Besuch
-        dieser Website.
+        des Online-Auftritts FussConnaisseur.
     </p>
 
 
 
-    <!-- 1. VERANTWORTLICHER -->
+    <!-- =====================================
+         1. VERANTWORTLICHER
+    ====================================== -->
 
     <div class="section">
 
@@ -498,13 +508,23 @@ footer a:hover {
                 Verantwortlicher für die
                 Datenverarbeitung auf dieser
                 Website ist der im Impressum
-                genannte Anbieter.
+                genannte Betreiber.
             </p>
 
             <p>
-                Die vollständigen Kontaktdaten
-                sind im Impressum dieser Website
-                abrufbar.
+                <strong>FussConnaisseur</strong>
+                ist die Bezeichnung dieses
+                Online-Auftritts. Der Betreiber
+                tritt online außerdem unter der
+                Bezeichnung
+                <strong>KohtaKuma</strong> auf.
+            </p>
+
+            <p>
+                Die vollständigen Angaben zum
+                Verantwortlichen sowie die
+                Kontaktmöglichkeiten befinden
+                sich im Impressum.
             </p>
 
             <p>
@@ -522,7 +542,9 @@ footer a:hover {
 
 
 
-    <!-- 2. HOSTING -->
+    <!-- =====================================
+         2. HOSTING
+    ====================================== -->
 
     <div class="section">
 
@@ -535,10 +557,8 @@ footer a:hover {
             <p>
                 Diese Website wird über
                 GitHub Pages bereitgestellt.
-            </p>
-
-            <p>
-                Anbieter ist GitHub, Inc.,
+                Anbieter des Dienstes ist
+                GitHub, Inc.,
                 88 Colin P Kelly Jr Street,
                 San Francisco, CA 94107,
                 USA.
@@ -561,41 +581,43 @@ footer a:hover {
             </p>
 
             <p>
-                Darüber hinaus können im Rahmen
-                der Bereitstellung insbesondere
-                technische Nutzungs- und
-                Verbindungsdaten verarbeitet
-                werden, beispielsweise Datum
-                und Uhrzeit einer Anfrage,
-                Geräte- und Browserinformationen
-                sowie Informationen über
-                aufgerufene Inhalte.
+                Im Rahmen der technischen
+                Bereitstellung können darüber
+                hinaus insbesondere
+                Verbindungs-, Geräte- und
+                Nutzungsinformationen
+                verarbeitet werden.
             </p>
 
             <p>
-                Die Verarbeitung erfolgt zum
-                Zweck der sicheren und
-                zuverlässigen Bereitstellung
+                Die Verarbeitung erfolgt,
+                soweit sie in unserem
+                Verantwortungsbereich liegt,
+                zum Zweck einer sicheren,
+                stabilen und technisch
+                funktionsfähigen Bereitstellung
                 dieser Website.
             </p>
 
             <p>
-                Soweit die Verarbeitung in
-                unserem Verantwortungsbereich
-                erfolgt, stützen wir sie auf
-                Art. 6 Abs. 1 lit. f DSGVO.
-                Unser berechtigtes Interesse
-                liegt in der sicheren,
-                stabilen und technisch
-                funktionsfähigen Bereitstellung
-                unseres Internetauftritts.
+                Soweit hierfür eine
+                Rechtsgrundlage in unserem
+                Verantwortungsbereich
+                erforderlich ist, erfolgt die
+                Verarbeitung auf Grundlage
+                von Art. 6 Abs. 1 lit. f DSGVO.
+            </p>
+
+            <p>
+                Das berechtigte Interesse
+                besteht in der sicheren und
+                zuverlässigen Bereitstellung
+                dieses Internetauftritts.
             </p>
 
             <p>
                 Weitere Informationen zur
-                Datenverarbeitung durch GitHub
-                finden sich in der
-                Datenschutzerklärung von GitHub:
+                Datenverarbeitung durch GitHub:
             </p>
 
             <p>
@@ -617,34 +639,43 @@ footer a:hover {
 
 
 
-    <!-- 3. DRITTLAND -->
+    <!-- =====================================
+         3. INTERNATIONALE DATENÜBERMITTLUNG
+    ====================================== -->
 
     <div class="section">
 
         <div class="section-title">
-            3. Datenverarbeitung außerhalb der EU
+            3. Verarbeitung in Drittländern
         </div>
 
         <div class="info">
 
             <p>
-                Im Rahmen der Nutzung von
-                GitHub können personenbezogene
-                Daten auch außerhalb der
-                Europäischen Union bzw. des
-                Europäischen Wirtschaftsraums,
-                insbesondere in den USA,
+                Bei der Nutzung von GitHub
+                können personenbezogene Daten
+                auch außerhalb der Europäischen
+                Union beziehungsweise des
+                Europäischen Wirtschaftsraums
                 verarbeitet werden.
             </p>
 
             <p>
-                Weitere Informationen zu
-                internationalen
-                Datenübermittlungen und den
-                von GitHub eingesetzten
-                Schutzmechanismen können der
-                Datenschutzerklärung von
-                GitHub entnommen werden.
+                Dies betrifft insbesondere
+                eine mögliche Verarbeitung
+                personenbezogener Daten in
+                den Vereinigten Staaten.
+            </p>
+
+            <p>
+                Informationen über
+                internationale
+                Datenübermittlungen und die
+                von GitHub verwendeten
+                Schutzmechanismen stellt
+                GitHub in seinen
+                Datenschutzinformationen
+                bereit.
             </p>
 
         </div>
@@ -653,35 +684,39 @@ footer a:hover {
 
 
 
-    <!-- 4. COOKIES -->
+    <!-- =====================================
+         4. COOKIES / TRACKING
+    ====================================== -->
 
     <div class="section">
 
         <div class="section-title">
-            4. Cookies und Tracking
+            4. Cookies, Analyse und Tracking
         </div>
 
         <div class="info">
 
             <p>
-                Der Betreiber dieser Website
-                verwendet derzeit keine eigenen
-                Analyse-, Werbe- oder
+                Der Betreiber von
+                FussConnaisseur verwendet auf
+                dieser Website derzeit keine
+                eigenen Analyse-, Werbe- oder
                 Trackingdienste.
             </p>
 
             <p>
-                Insbesondere werden auf dieser
-                Website derzeit kein Google
-                Analytics, kein Meta Pixel und
-                keine vergleichbaren
-                Trackingdienste eingesetzt.
+                Insbesondere werden derzeit
+                kein Google Analytics,
+                kein Meta Pixel und keine
+                vergleichbaren Analyse- oder
+                Werbetrackingdienste
+                eingesetzt.
             </p>
 
             <p>
-                Vom Betreiber werden keine
-                optionalen Tracking-Cookies
-                gesetzt.
+                Der Betreiber setzt auf dieser
+                Website keine optionalen
+                Tracking-Cookies ein.
             </p>
 
             <p>
@@ -691,7 +726,6 @@ footer a:hover {
                 Bereitstellung seines Dienstes
                 einsetzt, richtet sich deren
                 Verarbeitung nach den
-                Bedingungen und
                 Datenschutzinformationen des
                 jeweiligen Anbieters.
             </p>
@@ -702,59 +736,69 @@ footer a:hover {
 
 
 
-    <!-- 5. SOCIAL LINKS -->
+    <!-- =====================================
+         5. EXTERNE LINKS
+    ====================================== -->
 
     <div class="section">
 
         <div class="section-title">
-            5. Links zu sozialen Netzwerken
-            und externen Diensten
+            5. Externe Links und
+            Social-Media-Auftritte
         </div>
 
         <div class="info">
 
             <p>
-                Auf dieser Website befinden
-                sich Links zu externen Diensten
-                und Social-Media-Plattformen,
-                beispielsweise Twitch, YouTube,
+                Auf FussConnaisseur befinden
+                sich Links zu externen Websites,
+                Diensten und
+                Social-Media-Plattformen.
+            </p>
+
+            <p>
+                Dazu können beispielsweise
+                Links zu Twitch, YouTube,
                 Steam, TikTok, Discord oder
-                Instagram.
+                Instagram gehören.
             </p>
 
             <p>
-                Dabei handelt es sich um
-                gewöhnliche externe Links.
-                Inhalte dieser Anbieter werden
-                derzeit nicht unmittelbar in
-                diese Website eingebettet.
+                Es handelt sich dabei derzeit
+                ausschließlich um gewöhnliche
+                externe Links.
             </p>
 
             <p>
-                Beim bloßen Aufruf dieser
-                Website wird deshalb durch
+                Beim bloßen Besuch von
+                FussConnaisseur wird durch
                 diese Links keine Verbindung
-                zu den jeweiligen Plattformen
-                hergestellt.
+                zu den jeweiligen externen
+                Plattformen hergestellt.
             </p>
 
             <p>
-                Erst wenn ein entsprechender
-                Link angeklickt wird, wird die
+                Erst wenn ein solcher Link
+                angeklickt wird, wird die
                 Website des jeweiligen
                 Drittanbieters aufgerufen.
-                Dabei können personenbezogene
-                Daten, insbesondere die
-                IP-Adresse, an den jeweiligen
-                Anbieter übermittelt werden.
             </p>
 
             <p>
-                Für die weitere Verarbeitung
-                personenbezogener Daten auf
-                diesen externen Websites ist
-                grundsätzlich der jeweilige
-                Anbieter verantwortlich.
+                Dabei können personenbezogene
+                Daten, insbesondere die
+                IP-Adresse sowie weitere
+                technische Informationen,
+                an den jeweiligen Anbieter
+                übermittelt werden.
+            </p>
+
+            <p>
+                Für die anschließende
+                Verarbeitung auf der externen
+                Website gelten die
+                Datenschutzbestimmungen des
+                jeweiligen Anbieters.
             </p>
 
         </div>
@@ -763,7 +807,9 @@ footer a:hover {
 
 
 
-    <!-- 6. KEINE EMBEDS -->
+    <!-- =====================================
+         6. KEINE EMBEDS
+    ====================================== -->
 
     <div class="section">
 
@@ -779,18 +825,24 @@ footer a:hover {
                 derzeit keine Videos,
                 Social-Media-Feeds,
                 Karten, Werbeanzeigen oder
-                sonstigen externen Inhalte
-                automatisch von
-                Drittanbieter-Servern geladen.
+                vergleichbaren Inhalte von
+                Drittanbieter-Servern
+                automatisch eingebettet.
             </p>
 
             <p>
-                Dadurch werden beim normalen
-                Besuch dieser Website keine
-                zusätzlichen Verbindungen zu
-                diesen Diensten allein aufgrund
-                einer solchen Einbettung
-                hergestellt.
+                Insbesondere werden keine
+                eingebetteten YouTube- oder
+                Twitch-Player und keine
+                eingebetteten Social-Media-
+                Beiträge eingesetzt.
+            </p>
+
+            <p>
+                Die auf der Website
+                aufgeführten Plattformen
+                werden ausschließlich über
+                normale Links aufgerufen.
             </p>
 
         </div>
@@ -799,55 +851,103 @@ footer a:hover {
 
 
 
-    <!-- 7. KONTAKT -->
+    <!-- =====================================
+         7. SCHRIFTARTEN
+    ====================================== -->
 
     <div class="section">
 
         <div class="section-title">
-            7. Kontaktaufnahme
+            7. Schriftarten
         </div>
 
         <div class="info">
 
             <p>
-                Diese Website selbst stellt
-                derzeit kein Kontaktformular
+                Für die Darstellung dieser
+                Website werden derzeit keine
+                Schriftarten von externen
+                Anbietern wie Google Fonts
+                nachgeladen.
+            </p>
+
+            <p>
+                Es werden ausschließlich
+                Schriftarten verwendet, die
+                auf dem Gerät des Besuchers
+                verfügbar sind beziehungsweise
+                durch den Browser dargestellt
+                werden.
+            </p>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =====================================
+         8. KONTAKTAUFNAHME
+    ====================================== -->
+
+    <div class="section">
+
+        <div class="section-title">
+            8. Kontaktaufnahme
+        </div>
+
+        <div class="info">
+
+            <p>
+                FussConnaisseur stellt derzeit
+                kein eigenes Kontaktformular
                 bereit.
             </p>
 
             <p>
-                Sofern eine Kontaktaufnahme
-                über die im Impressum genannten
-                Kontaktmöglichkeiten erfolgt,
-                werden die dabei übermittelten
-                personenbezogenen Daten zum
-                Zweck der Bearbeitung der
-                jeweiligen Anfrage verarbeitet.
+                Eine Kontaktaufnahme ist über
+                die im Impressum angegebenen
+                Kontaktmöglichkeiten möglich.
+            </p>
+
+            <p>
+                Wenn eine Kontaktaufnahme
+                erfolgt, werden die dabei
+                übermittelten Daten zur
+                Bearbeitung und Beantwortung
+                der jeweiligen Anfrage
+                verarbeitet.
             </p>
 
             <p>
                 Die Rechtsgrundlage richtet
-                sich nach dem Inhalt der
-                Kontaktaufnahme.
+                sich nach dem jeweiligen
+                Inhalt der Kontaktaufnahme.
             </p>
 
             <p>
                 Bei allgemeinen Anfragen kann
                 die Verarbeitung insbesondere
-                auf Art. 6 Abs. 1 lit. f DSGVO
-                beruhen. Unser berechtigtes
-                Interesse besteht in der
-                Bearbeitung der an uns
-                gerichteten Anfrage.
+                auf Grundlage von
+                Art. 6 Abs. 1 lit. f DSGVO
+                erfolgen.
             </p>
 
             <p>
-                Soweit die Kontaktaufnahme auf
-                den Abschluss oder die
-                Durchführung eines Vertrags
-                gerichtet ist, erfolgt die
-                Verarbeitung auf Grundlage von
-                Art. 6 Abs. 1 lit. b DSGVO.
+                Das berechtigte Interesse
+                besteht in der Bearbeitung
+                und Beantwortung der
+                jeweiligen Anfrage.
+            </p>
+
+            <p>
+                Soweit eine Anfrage auf den
+                Abschluss oder die Durchführung
+                eines Vertrags gerichtet ist,
+                kann die Verarbeitung auf
+                Grundlage von
+                Art. 6 Abs. 1 lit. b DSGVO
+                erfolgen.
             </p>
 
         </div>
@@ -856,42 +956,95 @@ footer a:hover {
 
 
 
-    <!-- 8. SPEICHERDAUER -->
+    <!-- =====================================
+         9. ONLINE-IMPRESSUM
+    ====================================== -->
 
     <div class="section">
 
         <div class="section-title">
-            8. Speicherdauer
+            9. Online-Impressum.de
         </div>
 
         <div class="info">
 
             <p>
-                Personenbezogene Daten werden
-                nur so lange gespeichert, wie
-                dies für den jeweiligen Zweck
-                erforderlich ist oder
-                gesetzliche
+                Für die Bereitstellung der im
+                Impressum verwendeten
+                c/o-Anschrift sowie weiterer
+                Kontaktmöglichkeiten wird der
+                Dienst Online-Impressum.de
+                genutzt.
+            </p>
+
+            <p>
+                Auf FussConnaisseur selbst
+                werden keine Inhalte dieses
+                Anbieters automatisch
+                eingebettet.
+            </p>
+
+            <p>
+                Eine Verbindung zur Website
+                von Online-Impressum.de wird
+                über den entsprechenden
+                externen Link beziehungsweise
+                bei Nutzung des dort
+                bereitgestellten Kontaktwegs
+                hergestellt.
+            </p>
+
+            <p>
+
+                <a
+                    class="text-link"
+                    href="https://mein.online-impressum.de/kohtakuma"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    → Online-Impressum öffnen
+                </a>
+
+            </p>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =====================================
+         10. SPEICHERDAUER
+    ====================================== -->
+
+    <div class="section">
+
+        <div class="section-title">
+            10. Speicherdauer
+        </div>
+
+        <div class="info">
+
+            <p>
+                Personenbezogene Daten, die
+                sich im Verantwortungsbereich
+                des Betreibers befinden,
+                werden grundsätzlich nur so
+                lange gespeichert, wie dies
+                für den jeweiligen
+                Verarbeitungszweck erforderlich
+                ist oder gesetzliche
                 Aufbewahrungspflichten eine
                 längere Speicherung verlangen.
             </p>
 
             <p>
-                Auf die konkrete Speicherdauer
-                der durch GitHub im Rahmen des
-                Hostings verarbeiteten Daten
-                hat der Betreiber dieser
-                Website keinen vollständigen
-                Einfluss.
-            </p>
-
-            <p>
-                Informationen zur
-                Datenverarbeitung und
-                Speicherdauer durch GitHub
-                können den
-                Datenschutzinformationen von
-                GitHub entnommen werden.
+                Soweit Daten unmittelbar durch
+                GitHub oder einen anderen
+                externen Anbieter verarbeitet
+                werden, gelten ergänzend die
+                Speicherfristen des jeweiligen
+                Anbieters.
             </p>
 
         </div>
@@ -900,62 +1053,65 @@ footer a:hover {
 
 
 
-    <!-- 9. RECHTE -->
+    <!-- =====================================
+         11. BETROFFENENRECHTE
+    ====================================== -->
 
     <div class="section">
 
         <div class="section-title">
-            9. Rechte betroffener Personen
+            11. Rechte betroffener Personen
         </div>
 
         <div class="info">
 
             <p>
-                Betroffene Personen haben im
-                Rahmen der gesetzlichen
-                Voraussetzungen insbesondere
-                das Recht auf:
+                Nach Maßgabe der gesetzlichen
+                Voraussetzungen können
+                betroffene Personen
+                insbesondere folgende Rechte
+                geltend machen:
             </p>
 
             <p>
-                • Auskunft über die
-                verarbeiteten personenbezogenen
-                Daten,
+                • Recht auf Auskunft
+                gemäß Art. 15 DSGVO
             </p>
 
             <p>
-                • Berichtigung unrichtiger
-                personenbezogener Daten,
+                • Recht auf Berichtigung
+                gemäß Art. 16 DSGVO
             </p>
 
             <p>
-                • Löschung personenbezogener
-                Daten,
+                • Recht auf Löschung
+                gemäß Art. 17 DSGVO
             </p>
 
             <p>
-                • Einschränkung der
-                Verarbeitung,
+                • Recht auf Einschränkung
+                der Verarbeitung
+                gemäß Art. 18 DSGVO
             </p>
 
             <p>
-                • Datenübertragbarkeit, soweit
-                die gesetzlichen
-                Voraussetzungen vorliegen,
+                • Recht auf
+                Datenübertragbarkeit
+                gemäß Art. 20 DSGVO
             </p>
 
             <p>
-                • sowie Widerspruch gegen
-                bestimmte Verarbeitungen.
+                • Recht auf Widerspruch
+                gemäß Art. 21 DSGVO
             </p>
 
             <p>
-                Beruht eine Verarbeitung auf
-                einer Einwilligung, besteht
-                außerdem das Recht, diese
-                Einwilligung jederzeit mit
-                Wirkung für die Zukunft zu
-                widerrufen.
+                Soweit eine Verarbeitung auf
+                einer Einwilligung beruht,
+                besteht außerdem das Recht,
+                die Einwilligung jederzeit
+                mit Wirkung für die Zukunft
+                zu widerrufen.
             </p>
 
         </div>
@@ -964,12 +1120,14 @@ footer a:hover {
 
 
 
-    <!-- 10. WIDERSPRUCH -->
+    <!-- =====================================
+         12. WIDERSPRUCH
+    ====================================== -->
 
     <div class="section">
 
         <div class="section-title">
-            10. Widerspruchsrecht
+            12. Widerspruchsrecht
         </div>
 
         <div class="info">
@@ -981,6 +1139,9 @@ footer a:hover {
                 verarbeitet werden, besteht
                 unter den Voraussetzungen des
                 Art. 21 DSGVO das Recht,
+                aus Gründen, die sich aus der
+                besonderen Situation der
+                betroffenen Person ergeben,
                 Widerspruch gegen die
                 Verarbeitung einzulegen.
             </p>
@@ -991,24 +1152,30 @@ footer a:hover {
 
 
 
-    <!-- 11. BESCHWERDE -->
+    <!-- =====================================
+         13. BESCHWERDERECHT
+    ====================================== -->
 
     <div class="section">
 
         <div class="section-title">
-            11. Beschwerderecht
+            13. Beschwerderecht
         </div>
 
         <div class="info">
 
             <p>
                 Betroffene Personen haben
-                außerdem das Recht, sich bei
-                einer zuständigen
+                unbeschadet anderer
+                verwaltungsrechtlicher oder
+                gerichtlicher Rechtsbehelfe
+                das Recht, sich bei einer
                 Datenschutzaufsichtsbehörde
-                über die Verarbeitung ihrer
-                personenbezogenen Daten zu
-                beschweren.
+                zu beschweren, wenn sie der
+                Ansicht sind, dass die
+                Verarbeitung ihrer
+                personenbezogenen Daten gegen
+                die DSGVO verstößt.
             </p>
 
         </div>
@@ -1017,29 +1184,31 @@ footer a:hover {
 
 
 
-    <!-- 12. SSL -->
+    <!-- =====================================
+         14. HTTPS
+    ====================================== -->
 
     <div class="section">
 
         <div class="section-title">
-            12. Verschlüsselte Übertragung
+            14. Verschlüsselte Übertragung
         </div>
 
         <div class="info">
 
             <p>
                 Diese Website wird über eine
-                verschlüsselte HTTPS-Verbindung
+                verschlüsselte
+                HTTPS-Verbindung
                 bereitgestellt.
             </p>
 
             <p>
-                Dadurch werden die zwischen
-                dem Browser und der Website
-                übertragenen Daten während
-                der Übertragung vor einem
-                einfachen Mitlesen durch
-                Dritte geschützt.
+                Dadurch werden Daten während
+                der Übertragung zwischen dem
+                Browser des Besuchers und der
+                Website verschlüsselt
+                übertragen.
             </p>
 
         </div>
@@ -1048,35 +1217,40 @@ footer a:hover {
 
 
 
-    <!-- 13. ÄNDERUNGEN -->
+    <!-- =====================================
+         15. ÄNDERUNGEN
+    ====================================== -->
 
     <div class="section">
 
         <div class="section-title">
-            13. Änderungen dieser
+            15. Änderungen dieser
             Datenschutzerklärung
         </div>
 
         <div class="info">
 
             <p>
-                Diese Datenschutzerklärung wird
-                angepasst, wenn sich die
-                Funktionen dieser Website,
-                die eingesetzten Dienste oder
-                die rechtlichen Anforderungen
+                Diese Datenschutzerklärung
+                wird angepasst, wenn sich
+                die eingesetzten Dienste,
+                Funktionen dieser Website
+                oder die maßgeblichen
+                rechtlichen Anforderungen
                 ändern.
             </p>
 
             <p>
-                Insbesondere kann eine
-                Aktualisierung erforderlich
-                werden, wenn zukünftig
+                Eine erneute Überprüfung ist
+                insbesondere erforderlich,
+                wenn zukünftig
                 Analysewerkzeuge,
                 eingebettete Medien,
-                Kontaktformulare oder andere
-                externe Dienste eingesetzt
-                werden.
+                Kontaktformulare,
+                externe Schriftarten,
+                Werbedienste oder andere
+                Drittanbieter-Technologien
+                eingesetzt werden.
             </p>
 
         </div>
@@ -1085,7 +1259,9 @@ footer a:hover {
 
 
 
-    <!-- STAND -->
+    <!-- =====================================
+         STAND
+    ====================================== -->
 
     <div class="notice">
 
@@ -1095,13 +1271,18 @@ footer a:hover {
 
         <br><br>
 
-        Aktueller technischer Stand dieser
-        Website: statische Website über
+        Diese Datenschutzerklärung beschreibt
+        den derzeitigen technischen Stand von
+        FussConnaisseur:
+
+        statische Bereitstellung über
         GitHub Pages, keine eigenen
         Analyse- oder Werbetracker,
         keine eingebetteten
-        Social-Media-Inhalte und
-        kein eigenes Kontaktformular.
+        Social-Media-Inhalte,
+        keine extern nachgeladenen
+        Webfonts und kein eigenes
+        Kontaktformular.
 
     </div>
 
