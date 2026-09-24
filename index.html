@@ -1,16 +1,22 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>FussConnaisseur</title>
 
+<meta
+    name="description"
+    content="FussConnaisseur – Gaming, Streaming, Gothic Aesthetic und mehr."
+>
+
 <style>
 
-/* =========================
-   GRUNDEINSTELLUNGEN
-========================= */
+/* ==========================================
+   RESET
+========================================== */
 
 * {
     box-sizing: border-box;
@@ -24,157 +30,345 @@ html {
 
 body {
     min-height: 100vh;
-    overflow-x: hidden;
-    font-family: Arial, Helvetica, sans-serif;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
     color: #f5eef5;
 
-    background:
-        radial-gradient(circle at 75% 40%, rgba(137, 28, 88, .32), transparent 35%),
-        radial-gradient(circle at 20% 80%, rgba(89, 16, 63, .25), transparent 35%),
-        linear-gradient(135deg, #08070b, #160b14 50%, #09070b);
+    background: #080508;
+
+    overflow-x: hidden;
 }
 
-/* =========================
-   HINTERGRUND
-========================= */
+
+/* ==========================================
+   HINTERGRUNDBILD
+
+   Lege die Datei "background.webp"
+   direkt neben die index.html.
+========================================== */
 
 .background {
     position: fixed;
     inset: 0;
-    z-index: -5;
+
+    z-index: -10;
 
     background-image:
         linear-gradient(
             90deg,
-            rgba(7, 5, 9, .95) 0%,
-            rgba(12, 7, 12, .75) 45%,
-            rgba(12, 6, 11, .25) 100%
+            rgba(5, 3, 6, .96) 0%,
+            rgba(8, 4, 8, .88) 25%,
+            rgba(12, 5, 11, .48) 58%,
+            rgba(7, 3, 7, .25) 100%
         ),
-        url("background.jpg");
+        url("background.webp");
 
     background-size: cover;
-    background-position: center;
+
+    background-position:
+        center center;
+
+    background-repeat: no-repeat;
+
+    transform: scale(1.02);
 }
 
-/* leichter dunkler Film */
+
+/* zusätzliche Abdunklung */
 
 .background::after {
     content: "";
+
     position: absolute;
     inset: 0;
 
     background:
         radial-gradient(
-            circle at center,
-            transparent 20%,
-            rgba(0,0,0,.65) 100%
+            circle at 75% 40%,
+            rgba(191, 49, 120, .13),
+            transparent 32%
+        ),
+
+        linear-gradient(
+            180deg,
+            rgba(0,0,0,.12),
+            rgba(0,0,0,.35)
         );
 }
 
-/* =========================
+
+/* ==========================================
+   FALLBACK
+
+   Falls background.webp noch nicht existiert,
+   bleibt trotzdem ein schöner Hintergrund.
+========================================== */
+
+body::before {
+    content: "";
+
+    position: fixed;
+    inset: 0;
+
+    z-index: -20;
+
+    background:
+        radial-gradient(
+            circle at 78% 35%,
+            rgba(142, 26, 88, .32),
+            transparent 35%
+        ),
+
+        radial-gradient(
+            circle at 20% 80%,
+            rgba(82, 15, 59, .22),
+            transparent 35%
+        ),
+
+        linear-gradient(
+            135deg,
+            #050407,
+            #140912 50%,
+            #070508
+        );
+}
+
+
+/* ==========================================
+   PARTICLES
+========================================== */
+
+#particles {
+    position: fixed;
+    inset: 0;
+
+    z-index: -2;
+
+    overflow: hidden;
+
+    pointer-events: none;
+}
+
+.particle {
+    position: absolute;
+
+    width: 3px;
+    height: 3px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(235, 124, 181, .65);
+
+    box-shadow:
+        0 0 8px
+        rgba(235, 124, 181, .55);
+
+    animation:
+        floatParticle linear infinite;
+}
+
+@keyframes floatParticle {
+
+    0% {
+        transform:
+            translateY(105vh)
+            translateX(0);
+
+        opacity: 0;
+    }
+
+    10% {
+        opacity: .8;
+    }
+
+    90% {
+        opacity: .35;
+    }
+
+    100% {
+        transform:
+            translateY(-10vh)
+            translateX(35px);
+
+        opacity: 0;
+    }
+
+}
+
+
+/* ==========================================
    HEADER
-========================= */
+========================================== */
 
 header {
     width: 100%;
-    padding: 28px 5%;
+
+    padding:
+        28px 5%;
 
     display: flex;
-    justify-content: space-between;
+
+    justify-content:
+        space-between;
+
     align-items: center;
 
     position: relative;
-    z-index: 10;
+
+    z-index: 20;
 }
 
+
+/* LOGO */
+
 .logo {
-    font-family: Georgia, serif;
+    font-family:
+        Georgia,
+        serif;
+
     font-size: 1.3rem;
-    letter-spacing: 5px;
+
     font-weight: bold;
+
+    letter-spacing: 5px;
+
+    color: #f3eaf0;
+
+    text-shadow:
+        0 0 20px
+        rgba(255,255,255,.08);
 }
 
 .logo span {
     color: #d770a6;
+
+    text-shadow:
+        0 0 12px
+        rgba(215,112,166,.7);
 }
 
-.effects-button {
-    border: 1px solid rgba(255,255,255,.15);
-    background: rgba(15,10,15,.55);
-    color: #ddd;
 
-    padding: 10px 16px;
-    border-radius: 20px;
+/* ==========================================
+   EFFEKT BUTTON
+========================================== */
 
+.effect-button {
     cursor: pointer;
 
-    backdrop-filter: blur(10px);
+    color: #d8ccd4;
 
-    transition: .25s;
+    font-family: inherit;
+
+    font-size: .78rem;
+
+    padding:
+        10px 17px;
+
+    border-radius: 30px;
+
+    border:
+        1px solid
+        rgba(255,255,255,.13);
+
+    background:
+        rgba(10,7,11,.55);
+
+    backdrop-filter:
+        blur(12px);
+
+    transition:
+        transform .2s,
+        border-color .2s,
+        background .2s,
+        color .2s;
 }
 
-.effects-button:hover {
-    border-color: #d770a6;
+.effect-button:hover {
+    transform:
+        translateY(-1px);
+
     color: white;
+
+    border-color:
+        rgba(215,112,166,.55);
+
+    background:
+        rgba(215,112,166,.08);
 }
 
-/* =========================
+
+/* ==========================================
    HAUPTBEREICH
-========================= */
+========================================== */
 
 main {
-    min-height: calc(100vh - 100px);
+    min-height:
+        calc(100vh - 170px);
 
     display: flex;
+
     align-items: center;
 
-    padding: 40px 8%;
+    padding:
+        55px 8% 90px;
 }
 
-/* =========================
-   GLAS KARTE
-========================= */
+
+/* ==========================================
+   HAUPTKARTE
+========================================== */
 
 .card {
-    width: min(760px, 100%);
-    padding: 48px;
-
     position: relative;
 
-    border-radius: 26px;
+    width:
+        min(
+            760px,
+            100%
+        );
+
+    padding:
+        50px;
+
+    border-radius:
+        28px;
 
     background:
         linear-gradient(
             135deg,
-            rgba(26,18,28,.82),
-            rgba(15,10,17,.65)
+            rgba(24, 15, 25, .89),
+            rgba(11, 8, 13, .74)
         );
 
-    border: 1px solid rgba(255,255,255,.12);
+    border:
+        1px solid
+        rgba(255,255,255,.12);
 
-    backdrop-filter: blur(22px);
+    backdrop-filter:
+        blur(22px);
+
+    -webkit-backdrop-filter:
+        blur(22px);
 
     box-shadow:
-        0 30px 80px rgba(0,0,0,.55),
-        inset 0 1px 0 rgba(255,255,255,.08);
+        0 35px 100px
+        rgba(0,0,0,.52),
 
-    animation: cardIn 1s ease;
+        inset 0 1px 0
+        rgba(255,255,255,.07);
+
+    animation:
+        cardEntrance
+        .8s ease;
 }
 
-@keyframes cardIn {
 
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* pinke Ecke */
+/* pinke Linie oben */
 
 .card::before {
     content: "";
@@ -182,316 +376,539 @@ main {
     position: absolute;
 
     top: -1px;
-    left: 60px;
+    left: 50px;
 
-    width: 120px;
+    width: 115px;
     height: 2px;
 
-    background: #d770a6;
+    background:
+        #d770a6;
 
     box-shadow:
-        0 0 15px #d770a6,
-        0 0 30px rgba(215,112,166,.5);
+        0 0 12px
+        rgba(215,112,166,.85),
+
+        0 0 30px
+        rgba(215,112,166,.35);
 }
 
-/* =========================
-   TYPOGRAFIE
-========================= */
+
+@keyframes cardEntrance {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0);
+    }
+
+}
+
+
+/* ==========================================
+   KLEINE ÜBERSCHRIFT
+========================================== */
 
 .eyebrow {
     color: #a895a4;
 
-    font-size: .72rem;
+    font-size: .67rem;
 
     letter-spacing: 5px;
+
+    text-transform: uppercase;
 
     margin-bottom: 20px;
 }
 
+
+/* ==========================================
+   HAUPTTITEL
+========================================== */
+
 h1 {
-    font-family: Georgia, serif;
-    font-size: clamp(2.8rem, 4.5vw, 5rem);
-    line-height: 1;
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size:
+        clamp(
+            3rem,
+            4.5vw,
+            5rem
+        );
+
+    line-height: .95;
+
     font-weight: normal;
-    margin-bottom: 22px;
+
+    letter-spacing: -3px;
+
     white-space: nowrap;
+
+    margin-bottom: 24px;
+
+    text-shadow:
+        0 5px 35px
+        rgba(0,0,0,.35);
 }
 
 h1 span {
     color: #d770a6;
+
+    text-shadow:
+        0 0 25px
+        rgba(215,112,166,.2);
 }
 
-@media (max-width: 800px) {
-    h1 {
-        font-size: clamp(2.3rem, 11vw, 4rem);
-        white-space: normal;
-        overflow-wrap: break-word;
-    }
-}
+
+/* ==========================================
+   BESCHREIBUNG
+========================================== */
 
 .description {
-    color: #c8bac5;
+    max-width: 590px;
 
-    line-height: 1.8;
+    color: #b7a9b3;
 
-    max-width: 470px;
+    font-size: .96rem;
+
+    line-height: 1.75;
 
     margin-bottom: 28px;
 }
 
-/* =========================
+.description strong {
+    color: #eee3ea;
+
+    font-weight: normal;
+}
+
+
+/* ==========================================
    TAGS
-========================= */
+========================================== */
 
 .tags {
     display: flex;
+
     flex-wrap: wrap;
 
-    gap: 10px;
+    gap: 9px;
 
-    margin-bottom: 34px;
+    margin-bottom: 32px;
 }
 
 .tag {
-    padding: 8px 13px;
+    padding:
+        7px 12px;
 
-    border-radius: 30px;
+    border-radius:
+        20px;
 
-    border: 1px solid rgba(215,112,166,.25);
+    color: #cdbdc8;
 
-    background: rgba(215,112,166,.08);
+    font-size: .68rem;
 
-    color: #e7bfd4;
+    letter-spacing: 1px;
 
-    font-size: .8rem;
+    text-transform: uppercase;
 
-    transition: .2s;
+    background:
+        rgba(255,255,255,.035);
+
+    border:
+        1px solid
+        rgba(255,255,255,.08);
 }
 
-.tag:hover {
-    transform: translateY(-2px);
 
-    background: rgba(215,112,166,.16);
-}
-
-/* =========================
+/* ==========================================
    SOCIAL LINKS
-========================= */
+========================================== */
 
 .social-title {
-    color: #8f818d;
+    color: #897a85;
 
     font-size: .65rem;
 
-    letter-spacing: 4px;
+    letter-spacing: 3px;
 
-    margin-bottom: 14px;
+    text-transform: uppercase;
+
+    margin-bottom: 12px;
 }
 
 .socials {
     display: grid;
 
     grid-template-columns:
-        repeat(2, minmax(0,1fr));
+        repeat(
+            3,
+            minmax(0, 1fr)
+        );
 
     gap: 10px;
 }
 
 .social {
-    text-decoration: none;
-
-    color: #ddd;
-
-    border: 1px solid rgba(255,255,255,.08);
-
-    background: rgba(255,255,255,.035);
-
-    border-radius: 12px;
-
-    padding: 14px 16px;
+    min-height: 54px;
 
     display: flex;
 
-    justify-content: space-between;
     align-items: center;
 
-    transition: .25s;
-}
+    justify-content:
+        space-between;
 
-.social:hover {
-    color: white;
+    gap: 15px;
 
-    border-color: rgba(215,112,166,.55);
+    padding:
+        0 17px;
 
-    background: rgba(215,112,166,.09);
+    border-radius:
+        12px;
 
-    transform: translateX(4px);
-
-    box-shadow:
-        0 0 20px rgba(215,112,166,.08);
-}
-
-.arrow {
-    color: #d770a6;
-}
-
-/* =========================
-   RECHTE SEITE
-========================= */
-
-.quote {
-    position: absolute;
-
-    right: 8%;
-    bottom: 15%;
-
-    max-width: 310px;
-
-    text-align: right;
-
-    font-family: Georgia, serif;
-
-    font-size: 1.35rem;
-
-    color: rgba(255,255,255,.75);
-}
-
-.quote span {
-    color: #d770a6;
-}
-
-/* =========================
-   PARTIKEL
-========================= */
-
-.particle {
-    position: fixed;
-
-    width: 3px;
-    height: 3px;
-
-    border-radius: 50%;
-
-    background: #e39abe;
-
-    pointer-events: none;
-
-    z-index: -1;
-
-    box-shadow:
-        0 0 8px #e39abe;
-
-    animation: floatParticle linear infinite;
-}
-
-@keyframes floatParticle {
-
-    from {
-        transform:
-            translateY(110vh)
-            rotate(0deg);
-
-        opacity: 0;
-    }
-
-    15% {
-        opacity: .8;
-    }
-
-    85% {
-        opacity: .5;
-    }
-
-    to {
-        transform:
-            translateY(-20vh)
-            rotate(360deg);
-
-        opacity: 0;
-    }
-}
-
-/* =========================
-   FOOTER
-========================= */
-
-footer {
-    padding: 20px 5% 30px;
-
-    text-align: center;
-
-    color: #6e626b;
-
-    font-size: .75rem;
-}
-
-footer a {
-    color: #93818f;
+    color: #d8ccd4;
 
     text-decoration: none;
 
-    margin: 0 8px;
+    background:
+        rgba(255,255,255,.035);
+
+    border:
+        1px solid
+        rgba(255,255,255,.075);
+
+    transition:
+        transform .22s,
+        background .22s,
+        border-color .22s,
+        color .22s,
+        box-shadow .22s;
+}
+
+.social:hover {
+    transform:
+        translateY(-3px);
+
+    color: white;
+
+    background:
+        rgba(215,112,166,.09);
+
+    border-color:
+        rgba(215,112,166,.55);
+
+    box-shadow:
+        0 12px 35px
+        rgba(0,0,0,.2);
+}
+
+.social-name {
+    display: flex;
+
+    align-items: center;
+
+    gap: 9px;
+
+    font-size: .8rem;
+}
+
+.social-icon {
+    width: 21px;
+
+    text-align: center;
+
+    color: #d770a6;
+
+    font-size: .95rem;
+}
+
+.social-arrow {
+    color: #766872;
+
+    transition:
+        color .2s,
+        transform .2s;
+}
+
+.social:hover .social-arrow {
+    color: #d770a6;
+
+    transform:
+        translate(
+            2px,
+            -2px
+        );
+}
+
+
+/* ==========================================
+   QUOTE
+========================================== */
+
+.quote {
+    position: fixed;
+
+    right: 6%;
+    bottom: 9%;
+
+    width:
+        min(
+            390px,
+            34vw
+        );
+
+    color:
+        rgba(232,217,227,.60);
+
+    font-family:
+        Georgia,
+        serif;
+
+    font-size:
+        clamp(
+            1rem,
+            1.4vw,
+            1.35rem
+        );
+
+    font-style: italic;
+
+    line-height: 1.55;
+
+    text-align: right;
+
+    text-shadow:
+        0 3px 18px
+        rgba(0,0,0,.8);
+
+    pointer-events: none;
+}
+
+.quote span {
+    display: block;
+
+    margin-top: 9px;
+
+    color:
+        rgba(215,112,166,.75);
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    font-size: .6rem;
+
+    font-style: normal;
+
+    letter-spacing: 3px;
+
+    text-transform: uppercase;
+}
+
+
+/* ==========================================
+   FOOTER
+========================================== */
+
+footer {
+    position: relative;
+
+    z-index: 10;
+
+    padding:
+        20px 5% 30px;
+
+    text-align: center;
+
+    color: #756873;
+
+    font-size: .72rem;
+}
+
+footer a {
+    color: #94828f;
+
+    text-decoration: none;
+
+    margin:
+        0 8px;
+
+    transition:
+        color .2s;
 }
 
 footer a:hover {
     color: #d770a6;
 }
 
-/* =========================
+
+/* ==========================================
    EFFEKTE AUS
-========================= */
+========================================== */
 
-body.no-effects *,
-body.no-effects *::before,
-body.no-effects *::after {
-    animation: none !important;
-    transition: none !important;
-}
-
-body.no-effects .particle {
+body.effects-off #particles {
     display: none;
 }
 
-/* =========================
-   MOBILE
-========================= */
+body.effects-off .card {
+    animation: none;
+}
 
-@media (max-width: 800px) {
+body.effects-off .background {
+    transform: none;
+}
 
-    header {
-        padding: 20px;
-    }
+
+/* ==========================================
+   TABLET
+========================================== */
+
+@media (max-width: 1050px) {
 
     main {
-        padding: 30px 20px;
-        align-items: flex-start;
-    }
+        justify-content:
+            center;
 
-    .card {
-        padding: 32px 24px;
-    }
-
-    .socials {
-        grid-template-columns: 1fr;
+        padding:
+            50px 5% 70px;
     }
 
     .quote {
         display: none;
     }
 
-    .background {
-        background-position: 65% center;
+}
+
+
+/* ==========================================
+   MOBILE
+========================================== */
+
+@media (max-width: 700px) {
+
+    header {
+        padding:
+            20px;
     }
+
+    .logo {
+        font-size: 1rem;
+
+        letter-spacing: 4px;
+    }
+
+    .effect-button {
+        font-size: .68rem;
+
+        padding:
+            9px 13px;
+    }
+
+    main {
+        padding:
+            25px 20px 55px;
+
+        min-height: auto;
+    }
+
+    .card {
+        padding:
+            38px 25px;
+
+        border-radius:
+            22px;
+    }
+
+    .card::before {
+        left: 25px;
+    }
+
+    h1 {
+        font-size:
+            clamp(
+                2.5rem,
+                12vw,
+                4rem
+            );
+
+        white-space: normal;
+
+        overflow-wrap:
+            anywhere;
+
+        letter-spacing:
+            -2px;
+    }
+
+    .socials {
+        grid-template-columns:
+            1fr;
+    }
+
+    .background {
+        background-position:
+            68% center;
+    }
+
+}
+
+
+/* ==========================================
+   KLEINE HANDYS
+========================================== */
+
+@media (max-width: 380px) {
+
+    .card {
+        padding:
+            32px 20px;
+    }
+
+    h1 {
+        font-size:
+            2.4rem;
+    }
+
 }
 
 </style>
+
 </head>
 
 
 <body>
 
+
+<!-- ========================================
+     HINTERGRUND
+========================================= -->
+
 <div class="background"></div>
 
+
+<!-- ========================================
+     PARTIKEL
+========================================= -->
+
+<div id="particles"></div>
+
+
+
+<!-- ========================================
+     HEADER
+========================================= -->
 
 <header>
 
@@ -499,9 +916,11 @@ body.no-effects .particle {
         FC<span>✦</span>
     </div>
 
+
     <button
-        class="effects-button"
-        id="effectsButton"
+        class="effect-button"
+        id="effectButton"
+        type="button"
     >
         ✦ Effekte aus
     </button>
@@ -509,12 +928,19 @@ body.no-effects .particle {
 </header>
 
 
+
+<!-- ========================================
+     HAUPTINHALT
+========================================= -->
+
 <main>
+
 
 <section class="card">
 
+
     <div class="eyebrow">
-        WILLKOMMEN IN MEINER ECKE
+        WILLKOMMEN · ONLINE
     </div>
 
 
@@ -525,38 +951,52 @@ body.no-effects .particle {
 
     <p class="description">
 
-        Gaming im Kopf, Gothic im Herzen
-        und ein Auge für die wirklich
-        wichtigen Details.
-
-        <br><br>
-
         Willkommen in meiner kleinen Ecke
         des Internets.
+
+        Hier findest du meine
+        <strong>Socials</strong>,
+        Gaming-Kram und alles, was sonst
+        irgendwie zu mir gehört.
+
+        Dunkel, ein bisschen eigen und
+        vermutlich niemals ganz fertig.
 
     </p>
 
 
+
+    <!-- TAGS -->
+
     <div class="tags">
 
-        <div class="tag">
-            ♡ Team Füße
-        </div>
+        <span class="tag">
+            Gaming
+        </span>
 
-        <div class="tag">
-            ☾ Gothic
-        </div>
+        <span class="tag">
+            Streaming
+        </span>
 
-        <div class="tag">
-            ✦ Gaming
-        </div>
+        <span class="tag">
+            Gothic
+        </span>
 
-        <div class="tag">
-            ♥ Yandere
-        </div>
+        <span class="tag">
+            Anime
+        </span>
+
+        <span class="tag">
+            KohtaKuma
+        </span>
 
     </div>
 
+
+
+    <!-- =====================================
+         SOCIALS
+    ====================================== -->
 
     <div class="social-title">
         FIND ME ONLINE
@@ -565,83 +1005,213 @@ body.no-effects .particle {
 
     <div class="socials">
 
-        <a
-            class="social"
-            href="#"
-            target="_blank"
-        >
-            <span>Steam</span>
-            <span class="arrow">↗</span>
-        </a>
 
+        <!-- ===============================
+             STEAM
+
+             HIER DEINEN STEAM-LINK
+             EINTRAGEN
+        ================================ -->
 
         <a
             class="social"
-            href="#"
+            href="https://steamcommunity.com/id/KohtaKuma/"
             target="_blank"
+            rel="noopener noreferrer"
         >
-            <span>Twitch</span>
-            <span class="arrow">↗</span>
+
+            <span class="social-name">
+
+                <span class="social-icon">
+                    ◉
+                </span>
+
+                Steam
+
+            </span>
+
+            <span class="social-arrow">
+                ↗
+            </span>
+
         </a>
 
+
+
+        <!-- ===============================
+             TWITCH
+        ================================ -->
 
         <a
             class="social"
-            href="#"
+            href="https://www.twitch.tv/kohtakuma"
             target="_blank"
+            rel="noopener noreferrer"
         >
-            <span>YouTube</span>
-            <span class="arrow">↗</span>
+
+            <span class="social-name">
+
+                <span class="social-icon">
+                    ◈
+                </span>
+
+                Twitch
+
+            </span>
+
+            <span class="social-arrow">
+                ↗
+            </span>
+
         </a>
 
+
+
+        <!-- ===============================
+             YOUTUBE
+        ================================ -->
 
         <a
             class="social"
-            href="#"
+            href="https://www.youtube.com/@KohtaKuma"
             target="_blank"
+            rel="noopener noreferrer"
         >
-            <span>TikTok</span>
-            <span class="arrow">↗</span>
+
+            <span class="social-name">
+
+                <span class="social-icon">
+                    ▶
+                </span>
+
+                YouTube
+
+            </span>
+
+            <span class="social-arrow">
+                ↗
+            </span>
+
         </a>
 
+
+
+        <!-- ===============================
+             TIKTOK
+        ================================ -->
 
         <a
             class="social"
-            href="#"
+            href="https://www.tiktok.com/@kohtakuma"
             target="_blank"
+            rel="noopener noreferrer"
         >
-            <span>Discord</span>
-            <span class="arrow">↗</span>
+
+            <span class="social-name">
+
+                <span class="social-icon">
+                    ♪
+                </span>
+
+                TikTok
+
+            </span>
+
+            <span class="social-arrow">
+                ↗
+            </span>
+
         </a>
 
+
+
+        <!-- ===============================
+             DISCORD
+        ================================ -->
 
         <a
             class="social"
-            href="#"
+            href="https://discord.com/invite/rZM5jnupfB"
             target="_blank"
+            rel="noopener noreferrer"
         >
-            <span>Instagram</span>
-            <span class="arrow">↗</span>
+
+            <span class="social-name">
+
+                <span class="social-icon">
+                    ◆
+                </span>
+
+                Discord
+
+            </span>
+
+            <span class="social-arrow">
+                ↗
+            </span>
+
         </a>
+
+
+
+        <!-- ===============================
+             INSTAGRAM
+        ================================ -->
+
+        <a
+            class="social"
+            href="https://www.instagram.com/derkohtakuma"
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+
+            <span class="social-name">
+
+                <span class="social-icon">
+                    ◎
+                </span>
+
+                Instagram
+
+            </span>
+
+            <span class="social-arrow">
+                ↗
+            </span>
+
+        </a>
+
 
     </div>
+
 
 </section>
 
 
+</main>
+
+
+
+<!-- ========================================
+     ZITAT
+========================================= -->
+
 <div class="quote">
 
-    „Guter Geschmack beginnt
-    manchmal ganz unten.“
+    „Geschmack ist die Kunst,
+    sich selbst nicht erklären zu müssen.“
 
-    <br>
-
-    <span>— FussConnaisseur</span>
+    <span>
+        FUSSCONNAISSEUR
+    </span>
 
 </div>
 
-</main>
 
+
+<!-- ========================================
+     FOOTER
+========================================= -->
 
 <footer>
 
@@ -662,95 +1232,187 @@ body.no-effects .particle {
 </footer>
 
 
+
+<!-- ========================================
+     JAVASCRIPT
+========================================= -->
+
 <script>
 
-/* =========================
+
+/* ==========================================
    PARTIKEL ERZEUGEN
-========================= */
+========================================== */
 
-const particleAmount = 35;
+const particleContainer =
+    document.getElementById("particles");
 
-for (let i = 0; i < particleAmount; i++) {
 
-    const particle =
-        document.createElement("div");
+function createParticles() {
 
-    particle.classList.add("particle");
+    particleContainer.innerHTML = "";
 
-    particle.style.left =
-        Math.random() * 100 + "vw";
+    const amount = 35;
 
-    particle.style.animationDuration =
-        (8 + Math.random() * 15) + "s";
 
-    particle.style.animationDelay =
-        (-Math.random() * 15) + "s";
+    for (
+        let i = 0;
+        i < amount;
+        i++
+    ) {
 
-    particle.style.opacity =
-        Math.random();
+        const particle =
+            document.createElement("span");
 
-    document.body.appendChild(particle);
+
+        particle.classList.add(
+            "particle"
+        );
+
+
+        /* zufällige Position */
+
+        particle.style.left =
+            Math.random() * 100 + "%";
+
+
+        /* zufällige Größe */
+
+        const size =
+            Math.random() * 2.5 + 1;
+
+        particle.style.width =
+            size + "px";
+
+        particle.style.height =
+            size + "px";
+
+
+        /* zufällige Geschwindigkeit */
+
+        particle.style.animationDuration =
+            (
+                Math.random() * 12 + 12
+            )
+            + "s";
+
+
+        /* zufälliger Start */
+
+        particle.style.animationDelay =
+            (
+                Math.random() * -20
+            )
+            + "s";
+
+
+        /* unterschiedliche Transparenz */
+
+        particle.style.opacity =
+            Math.random() * .6 + .2;
+
+
+        particleContainer.appendChild(
+            particle
+        );
+
+    }
+
 }
 
 
-/* =========================
-   EFFEKTE AN / AUS
-========================= */
+createParticles();
 
-const effectsButton =
-    document.getElementById("effectsButton");
+
+
+/* ==========================================
+   EFFEKTE AN / AUS
+========================================== */
+
+const effectButton =
+    document.getElementById(
+        "effectButton"
+    );
+
 
 let effectsEnabled = true;
 
-effectsButton.addEventListener(
+
+effectButton.addEventListener(
     "click",
     function () {
 
         effectsEnabled =
             !effectsEnabled;
 
+
         document.body.classList.toggle(
-            "no-effects",
+            "effects-off",
             !effectsEnabled
         );
 
-        effectsButton.textContent =
-            effectsEnabled
-                ? "✦ Effekte aus"
-                : "✦ Effekte an";
+
+        if (effectsEnabled) {
+
+            effectButton.textContent =
+                "✦ Effekte aus";
+
+        }
+
+        else {
+
+            effectButton.textContent =
+                "✦ Effekte an";
+
+        }
+
     }
 );
 
 
-/* =========================
-   LEICHTER MAUS-EFFEKT
-========================= */
 
-document.addEventListener(
-    "mousemove",
-    function (event) {
+/* ==========================================
+   PLATZHALTER-LINKS ABFANGEN
 
-        if (!effectsEnabled) return;
+   Dadurch führen die Buttons nicht
+   versehentlich auf eine kaputte Seite,
+   solange noch kein echter Link
+   eingetragen wurde.
+========================================== */
 
-        const x =
-            event.clientX /
-            window.innerWidth;
+document
+    .querySelectorAll(".social")
+    .forEach(function(link) {
 
-        const y =
-            event.clientY /
-            window.innerHeight;
+        link.addEventListener(
+            "click",
+            function(event) {
 
-        document.querySelector(
-            ".card"
-        ).style.transform =
-            `translate(
-                ${(x - .5) * 4}px,
-                ${(y - .5) * 4}px
-            )`;
-    }
-);
+                const href =
+                    link.getAttribute("href");
+
+
+                if (
+                    !href ||
+                    href.startsWith("DEIN-")
+                ) {
+
+                    event.preventDefault();
+
+                    alert(
+                        "Für diesen Account wurde noch kein Link hinterlegt."
+                    );
+
+                }
+
+            }
+        );
+
+    });
+
 
 </script>
+
 
 </body>
 </html>
