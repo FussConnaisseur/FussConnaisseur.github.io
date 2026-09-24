@@ -1,19 +1,751 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>FussConnaisseur</title>
+<title>FussConnaisseur</title>
+
+<style>
+
+/* =========================
+   GRUNDEINSTELLUNGEN
+========================= */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    overflow-x: hidden;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #f5eef5;
+
+    background:
+        radial-gradient(circle at 75% 40%, rgba(137, 28, 88, .32), transparent 35%),
+        radial-gradient(circle at 20% 80%, rgba(89, 16, 63, .25), transparent 35%),
+        linear-gradient(135deg, #08070b, #160b14 50%, #09070b);
+}
+
+/* =========================
+   HINTERGRUND
+========================= */
+
+.background {
+    position: fixed;
+    inset: 0;
+    z-index: -5;
+
+    background-image:
+        linear-gradient(
+            90deg,
+            rgba(7, 5, 9, .95) 0%,
+            rgba(12, 7, 12, .75) 45%,
+            rgba(12, 6, 11, .25) 100%
+        ),
+        url("background.jpg");
+
+    background-size: cover;
+    background-position: center;
+}
+
+/* leichter dunkler Film */
+
+.background::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background:
+        radial-gradient(
+            circle at center,
+            transparent 20%,
+            rgba(0,0,0,.65) 100%
+        );
+}
+
+/* =========================
+   HEADER
+========================= */
+
+header {
+    width: 100%;
+    padding: 28px 5%;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    position: relative;
+    z-index: 10;
+}
+
+.logo {
+    font-family: Georgia, serif;
+    font-size: 1.3rem;
+    letter-spacing: 5px;
+    font-weight: bold;
+}
+
+.logo span {
+    color: #d770a6;
+}
+
+.effects-button {
+    border: 1px solid rgba(255,255,255,.15);
+    background: rgba(15,10,15,.55);
+    color: #ddd;
+
+    padding: 10px 16px;
+    border-radius: 20px;
+
+    cursor: pointer;
+
+    backdrop-filter: blur(10px);
+
+    transition: .25s;
+}
+
+.effects-button:hover {
+    border-color: #d770a6;
+    color: white;
+}
+
+/* =========================
+   HAUPTBEREICH
+========================= */
+
+main {
+    min-height: calc(100vh - 100px);
+
+    display: flex;
+    align-items: center;
+
+    padding: 40px 8%;
+}
+
+/* =========================
+   GLAS KARTE
+========================= */
+
+.card {
+    width: min(620px, 100%);
+    padding: 48px;
+
+    position: relative;
+
+    border-radius: 26px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(26,18,28,.82),
+            rgba(15,10,17,.65)
+        );
+
+    border: 1px solid rgba(255,255,255,.12);
+
+    backdrop-filter: blur(22px);
+
+    box-shadow:
+        0 30px 80px rgba(0,0,0,.55),
+        inset 0 1px 0 rgba(255,255,255,.08);
+
+    animation: cardIn 1s ease;
+}
+
+@keyframes cardIn {
+
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* pinke Ecke */
+
+.card::before {
+    content: "";
+
+    position: absolute;
+
+    top: -1px;
+    left: 60px;
+
+    width: 120px;
+    height: 2px;
+
+    background: #d770a6;
+
+    box-shadow:
+        0 0 15px #d770a6,
+        0 0 30px rgba(215,112,166,.5);
+}
+
+/* =========================
+   TYPOGRAFIE
+========================= */
+
+.eyebrow {
+    color: #a895a4;
+
+    font-size: .72rem;
+
+    letter-spacing: 5px;
+
+    margin-bottom: 20px;
+}
+
+h1 {
+    font-family: Georgia, serif;
+
+    font-size: clamp(2.8rem, 6vw, 5.5rem);
+
+    line-height: .95;
+
+    font-weight: normal;
+
+    margin-bottom: 22px;
+}
+
+h1 span {
+    color: #d770a6;
+}
+
+.description {
+    color: #c8bac5;
+
+    line-height: 1.8;
+
+    max-width: 470px;
+
+    margin-bottom: 28px;
+}
+
+/* =========================
+   TAGS
+========================= */
+
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+
+    gap: 10px;
+
+    margin-bottom: 34px;
+}
+
+.tag {
+    padding: 8px 13px;
+
+    border-radius: 30px;
+
+    border: 1px solid rgba(215,112,166,.25);
+
+    background: rgba(215,112,166,.08);
+
+    color: #e7bfd4;
+
+    font-size: .8rem;
+
+    transition: .2s;
+}
+
+.tag:hover {
+    transform: translateY(-2px);
+
+    background: rgba(215,112,166,.16);
+}
+
+/* =========================
+   SOCIAL LINKS
+========================= */
+
+.social-title {
+    color: #8f818d;
+
+    font-size: .65rem;
+
+    letter-spacing: 4px;
+
+    margin-bottom: 14px;
+}
+
+.socials {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0,1fr));
+
+    gap: 10px;
+}
+
+.social {
+    text-decoration: none;
+
+    color: #ddd;
+
+    border: 1px solid rgba(255,255,255,.08);
+
+    background: rgba(255,255,255,.035);
+
+    border-radius: 12px;
+
+    padding: 14px 16px;
+
+    display: flex;
+
+    justify-content: space-between;
+    align-items: center;
+
+    transition: .25s;
+}
+
+.social:hover {
+    color: white;
+
+    border-color: rgba(215,112,166,.55);
+
+    background: rgba(215,112,166,.09);
+
+    transform: translateX(4px);
+
+    box-shadow:
+        0 0 20px rgba(215,112,166,.08);
+}
+
+.arrow {
+    color: #d770a6;
+}
+
+/* =========================
+   RECHTE SEITE
+========================= */
+
+.quote {
+    position: absolute;
+
+    right: 8%;
+    bottom: 15%;
+
+    max-width: 310px;
+
+    text-align: right;
+
+    font-family: Georgia, serif;
+
+    font-size: 1.35rem;
+
+    color: rgba(255,255,255,.75);
+}
+
+.quote span {
+    color: #d770a6;
+}
+
+/* =========================
+   PARTIKEL
+========================= */
+
+.particle {
+    position: fixed;
+
+    width: 3px;
+    height: 3px;
+
+    border-radius: 50%;
+
+    background: #e39abe;
+
+    pointer-events: none;
+
+    z-index: -1;
+
+    box-shadow:
+        0 0 8px #e39abe;
+
+    animation: floatParticle linear infinite;
+}
+
+@keyframes floatParticle {
+
+    from {
+        transform:
+            translateY(110vh)
+            rotate(0deg);
+
+        opacity: 0;
+    }
+
+    15% {
+        opacity: .8;
+    }
+
+    85% {
+        opacity: .5;
+    }
+
+    to {
+        transform:
+            translateY(-20vh)
+            rotate(360deg);
+
+        opacity: 0;
+    }
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    padding: 20px 5% 30px;
+
+    text-align: center;
+
+    color: #6e626b;
+
+    font-size: .75rem;
+}
+
+footer a {
+    color: #93818f;
+
+    text-decoration: none;
+
+    margin: 0 8px;
+}
+
+footer a:hover {
+    color: #d770a6;
+}
+
+/* =========================
+   EFFEKTE AUS
+========================= */
+
+body.no-effects *,
+body.no-effects *::before,
+body.no-effects *::after {
+    animation: none !important;
+    transition: none !important;
+}
+
+body.no-effects .particle {
+    display: none;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 800px) {
+
+    header {
+        padding: 20px;
+    }
+
+    main {
+        padding: 30px 20px;
+        align-items: flex-start;
+    }
+
+    .card {
+        padding: 32px 24px;
+    }
+
+    .socials {
+        grid-template-columns: 1fr;
+    }
+
+    .quote {
+        display: none;
+    }
+
+    .background {
+        background-position: 65% center;
+    }
+}
+
+</style>
 </head>
+
 
 <body>
 
-    <h1>FussConnaisseur</h1>
+<div class="background"></div>
 
-    <p>
-        Willkommen auf meiner Website.
+
+<header>
+
+    <div class="logo">
+        FC<span>✦</span>
+    </div>
+
+    <button
+        class="effects-button"
+        id="effectsButton"
+    >
+        ✦ Effekte aus
+    </button>
+
+</header>
+
+
+<main>
+
+<section class="card">
+
+    <div class="eyebrow">
+        WILLKOMMEN IN MEINER ECKE
+    </div>
+
+
+    <h1>
+        Fuss<span>Connaisseur.</span>
+    </h1>
+
+
+    <p class="description">
+
+        Gaming im Kopf, Gothic im Herzen
+        und ein Auge für die wirklich
+        wichtigen Details.
+
+        <br><br>
+
+        Willkommen in meiner kleinen Ecke
+        des Internets.
+
     </p>
+
+
+    <div class="tags">
+
+        <div class="tag">
+            ♡ Team Füße
+        </div>
+
+        <div class="tag">
+            ☾ Gothic
+        </div>
+
+        <div class="tag">
+            ✦ Gaming
+        </div>
+
+        <div class="tag">
+            ♥ Yandere
+        </div>
+
+    </div>
+
+
+    <div class="social-title">
+        FIND ME ONLINE
+    </div>
+
+
+    <div class="socials">
+
+        <a
+            class="social"
+            href="#"
+            target="_blank"
+        >
+            <span>Steam</span>
+            <span class="arrow">↗</span>
+        </a>
+
+
+        <a
+            class="social"
+            href="#"
+            target="_blank"
+        >
+            <span>Twitch</span>
+            <span class="arrow">↗</span>
+        </a>
+
+
+        <a
+            class="social"
+            href="#"
+            target="_blank"
+        >
+            <span>YouTube</span>
+            <span class="arrow">↗</span>
+        </a>
+
+
+        <a
+            class="social"
+            href="#"
+            target="_blank"
+        >
+            <span>TikTok</span>
+            <span class="arrow">↗</span>
+        </a>
+
+
+        <a
+            class="social"
+            href="#"
+            target="_blank"
+        >
+            <span>Discord</span>
+            <span class="arrow">↗</span>
+        </a>
+
+
+        <a
+            class="social"
+            href="#"
+            target="_blank"
+        >
+            <span>Instagram</span>
+            <span class="arrow">↗</span>
+        </a>
+
+    </div>
+
+</section>
+
+
+<div class="quote">
+
+    „Guter Geschmack beginnt
+    manchmal ganz unten.“
+
+    <br>
+
+    <span>— FussConnaisseur</span>
+
+</div>
+
+</main>
+
+
+<footer>
+
+    © 2026 FussConnaisseur
+
+    ·
+
+    <a href="impressum.html">
+        Impressum
+    </a>
+
+    ·
+
+    <a href="datenschutz.html">
+        Datenschutz
+    </a>
+
+</footer>
+
+
+<script>
+
+/* =========================
+   PARTIKEL ERZEUGEN
+========================= */
+
+const particleAmount = 35;
+
+for (let i = 0; i < particleAmount; i++) {
+
+    const particle =
+        document.createElement("div");
+
+    particle.classList.add("particle");
+
+    particle.style.left =
+        Math.random() * 100 + "vw";
+
+    particle.style.animationDuration =
+        (8 + Math.random() * 15) + "s";
+
+    particle.style.animationDelay =
+        (-Math.random() * 15) + "s";
+
+    particle.style.opacity =
+        Math.random();
+
+    document.body.appendChild(particle);
+}
+
+
+/* =========================
+   EFFEKTE AN / AUS
+========================= */
+
+const effectsButton =
+    document.getElementById("effectsButton");
+
+let effectsEnabled = true;
+
+effectsButton.addEventListener(
+    "click",
+    function () {
+
+        effectsEnabled =
+            !effectsEnabled;
+
+        document.body.classList.toggle(
+            "no-effects",
+            !effectsEnabled
+        );
+
+        effectsButton.textContent =
+            effectsEnabled
+                ? "✦ Effekte aus"
+                : "✦ Effekte an";
+    }
+);
+
+
+/* =========================
+   LEICHTER MAUS-EFFEKT
+========================= */
+
+document.addEventListener(
+    "mousemove",
+    function (event) {
+
+        if (!effectsEnabled) return;
+
+        const x =
+            event.clientX /
+            window.innerWidth;
+
+        const y =
+            event.clientY /
+            window.innerHeight;
+
+        document.querySelector(
+            ".card"
+        ).style.transform =
+            `translate(
+                ${(x - .5) * 4}px,
+                ${(y - .5) * 4}px
+            )`;
+    }
+);
+
+</script>
 
 </body>
 </html>
