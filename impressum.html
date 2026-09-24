@@ -7,10 +7,32 @@
 
 <title>Impressum | FussConnaisseur</title>
 
+<meta
+    name="description"
+    content="Impressum von FussConnaisseur."
+>
+
+
+<!-- ==========================================
+     FAVICON
+========================================== -->
+
+<link
+    rel="icon"
+    type="image/png"
+    href="favicon.png"
+>
+
+<link
+    rel="shortcut icon"
+    href="favicon.png"
+>
+
+
 <style>
 
 /* ==========================================
-   GRUNDEINSTELLUNGEN
+   RESET
 ========================================== */
 
 * {
@@ -33,49 +55,39 @@ body {
 
     color: #f5eef5;
 
-    background:
-        radial-gradient(
-            circle at 75% 35%,
-            rgba(137, 28, 88, .28),
-            transparent 35%
-        ),
-
-        radial-gradient(
-            circle at 20% 80%,
-            rgba(89, 16, 63, .20),
-            transparent 35%
-        ),
-
-        linear-gradient(
-            135deg,
-            #050407,
-            #140912 50%,
-            #070508
-        );
+    background: #080508;
 
     overflow-x: hidden;
 }
 
 
 /* ==========================================
-   HINTERGRUND
+   HINTERGRUNDBILD
 ========================================== */
 
 .background {
     position: fixed;
     inset: 0;
 
-    z-index: -5;
+    z-index: -10;
 
-    pointer-events: none;
+    background-image:
+        linear-gradient(
+            90deg,
+            rgba(5, 3, 6, .96) 0%,
+            rgba(8, 4, 8, .88) 25%,
+            rgba(12, 5, 11, .48) 58%,
+            rgba(7, 3, 7, .25) 100%
+        ),
+        url("background.webp");
 
-    background:
-        radial-gradient(
-            circle at 75% 40%,
-            rgba(153, 38, 94, .13),
-            transparent 30%
-        );
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+
+    transform: scale(1.02);
 }
+
 
 .background::after {
     content: "";
@@ -85,9 +97,46 @@ body {
 
     background:
         radial-gradient(
-            circle at center,
-            transparent 20%,
-            rgba(0,0,0,.58) 100%
+            circle at 75% 40%,
+            rgba(191, 49, 120, .13),
+            transparent 32%
+        ),
+        linear-gradient(
+            180deg,
+            rgba(0,0,0,.18),
+            rgba(0,0,0,.48)
+        );
+}
+
+
+/* ==========================================
+   FALLBACK-HINTERGRUND
+========================================== */
+
+body::before {
+    content: "";
+
+    position: fixed;
+    inset: 0;
+
+    z-index: -20;
+
+    background:
+        radial-gradient(
+            circle at 78% 35%,
+            rgba(142, 26, 88, .32),
+            transparent 35%
+        ),
+        radial-gradient(
+            circle at 20% 80%,
+            rgba(82, 15, 59, .22),
+            transparent 35%
+        ),
+        linear-gradient(
+            135deg,
+            #050407,
+            #140912 50%,
+            #070508
         );
 }
 
@@ -102,55 +151,91 @@ header {
     padding: 28px 5%;
 
     display: flex;
+
     justify-content: space-between;
+
     align-items: center;
 
     position: relative;
 
-    z-index: 10;
+    z-index: 20;
 }
 
+
+/* ==========================================
+   LOGO
+========================================== */
+
 .logo {
-    font-family: Georgia, serif;
+    font-family:
+        Georgia,
+        serif;
 
     font-size: 1.3rem;
 
+    font-weight: bold;
+
     letter-spacing: 5px;
 
-    font-weight: bold;
+    color: #f3eaf0;
+
+    text-decoration: none;
+
+    text-shadow:
+        0 0 20px
+        rgba(255,255,255,.08);
 }
 
 .logo span {
     color: #d770a6;
+
+    text-shadow:
+        0 0 12px
+        rgba(215,112,166,.7);
 }
 
+
+/* ==========================================
+   ZURÜCK
+========================================== */
+
 .back-button {
+    color: #d8ccd4;
+
     text-decoration: none;
 
-    color: #ddd;
+    font-size: .75rem;
 
-    padding: 10px 18px;
+    padding:
+        10px 17px;
 
-    border-radius: 25px;
+    border-radius: 30px;
 
     border:
         1px solid
         rgba(255,255,255,.13);
 
     background:
-        rgba(15,10,15,.55);
+        rgba(10,7,11,.55);
 
-    backdrop-filter:
-        blur(10px);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
 
-    transition: .25s;
+    transition:
+        transform .2s,
+        border-color .2s,
+        background .2s,
+        color .2s;
 }
 
 .back-button:hover {
+    transform:
+        translateY(-1px);
+
     color: white;
 
     border-color:
-        #d770a6;
+        rgba(215,112,166,.55);
 
     background:
         rgba(215,112,166,.08);
@@ -158,79 +243,62 @@ header {
 
 
 /* ==========================================
-   HAUPTBEREICH
+   MAIN
 ========================================== */
 
 main {
-    width:
-        min(
-            820px,
-            calc(100% - 40px)
-        );
+    width: 100%;
 
-    margin:
-        70px auto 100px;
+    display: flex;
+
+    justify-content: center;
+
+    padding:
+        45px 25px 80px;
 }
 
 
 /* ==========================================
-   GLASS CARD
+   IMPRESSUM KARTE
 ========================================== */
 
-.card {
+.legal-card {
     position: relative;
+
+    width:
+        min(
+            880px,
+            100%
+        );
 
     padding: 55px;
 
-    border-radius: 26px;
+    border-radius: 28px;
 
     background:
         linear-gradient(
             135deg,
-            rgba(26,18,28,.88),
-            rgba(15,10,17,.72)
+            rgba(24,15,25,.94),
+            rgba(11,8,13,.88)
         );
 
     border:
         1px solid
         rgba(255,255,255,.12);
 
-    backdrop-filter:
-        blur(22px);
+    backdrop-filter: blur(22px);
+    -webkit-backdrop-filter: blur(22px);
 
     box-shadow:
-        0 30px 80px
+        0 35px 100px
         rgba(0,0,0,.55),
 
         inset 0 1px 0
         rgba(255,255,255,.07);
-
-    animation:
-        cardIn .8s ease;
-}
-
-@keyframes cardIn {
-
-    from {
-        opacity: 0;
-
-        transform:
-            translateY(25px);
-    }
-
-    to {
-        opacity: 1;
-
-        transform:
-            translateY(0);
-    }
-
 }
 
 
-/* pinke Linie */
-
-.card::before {
+.legal-card::before {
     content: "";
 
     position: absolute;
@@ -238,61 +306,75 @@ main {
     top: -1px;
     left: 55px;
 
-    width: 110px;
+    width: 115px;
     height: 2px;
 
-    background:
-        #d770a6;
+    background: #d770a6;
 
     box-shadow:
-        0 0 15px #d770a6,
-        0 0 30px rgba(215,112,166,.4);
+        0 0 12px
+        rgba(215,112,166,.85),
+
+        0 0 30px
+        rgba(215,112,166,.35);
 }
 
 
 /* ==========================================
-   TYPOGRAFIE
+   TITEL
 ========================================== */
 
 .eyebrow {
+    margin-bottom: 16px;
+
     color: #a895a4;
 
-    font-size: .68rem;
+    font-size: .65rem;
 
     letter-spacing: 5px;
 
-    margin-bottom: 18px;
+    text-transform: uppercase;
 }
 
+
 h1 {
+    margin-bottom: 18px;
+
     font-family:
         Georgia,
+        "Times New Roman",
         serif;
 
     font-size:
         clamp(
-            3rem,
-            7vw,
-            5rem
+            2.8rem,
+            6vw,
+            4.5rem
         );
-
-    line-height: 1;
 
     font-weight: normal;
 
-    margin-bottom: 18px;
+    letter-spacing: -2px;
+
+    color: #f3eaf0;
 }
+
 
 h1 span {
     color: #d770a6;
 }
 
+
 .intro {
-    color: #a99ba5;
+    max-width: 680px;
 
-    line-height: 1.7;
+    margin-bottom: 45px;
 
-    margin-bottom: 40px;
+    color: #b8a9b3;
+
+    font-size: .94rem;
+
+    line-height: 1.8;
 }
 
 
@@ -301,189 +383,149 @@ h1 span {
 ========================================== */
 
 .section {
-    margin-top: 35px;
-
-    padding-top: 30px;
+    padding:
+        30px 0;
 
     border-top:
         1px solid
         rgba(255,255,255,.07);
 }
 
+
 .section-title {
-    color: #df9fc1;
+    margin-bottom: 18px;
+
+    color: #e9dce4;
 
     font-family:
         Georgia,
+        "Times New Roman",
         serif;
 
-    font-size: 1.3rem;
-
-    margin-bottom: 18px;
+    font-size: 1.35rem;
 }
+
 
 .info {
-    color: #c8bac5;
+    color: #b6a8b2;
+
+    font-size: .9rem;
 
     line-height: 1.8;
-
-    font-size: .95rem;
 }
+
 
 .info p {
-    margin-bottom: 12px;
+    margin-bottom: 14px;
 }
 
+
+.info p:last-child {
+    margin-bottom: 0;
+}
+
+
 .info strong {
-    color: #f2e6ed;
+    color: #e8dce4;
+
+    font-weight: 500;
 }
 
 
 /* ==========================================
-   ANBIETERBOX
+   INFO BOX
 ========================================== */
 
-.provider-box {
-    margin-top: 18px;
+.info-box {
+    margin:
+        18px 0;
 
-    padding: 22px;
+    padding:
+        20px 22px;
 
     border-radius: 14px;
 
     background:
-        rgba(255,255,255,.025);
+        rgba(215,112,166,.045);
 
     border:
         1px solid
-        rgba(255,255,255,.07);
-
-    line-height: 1.85;
-
-    color: #d5c8d1;
+        rgba(215,112,166,.14);
 }
 
-.provider-label {
+
+.info-box strong {
     display: block;
 
-    margin-bottom: 4px;
+    margin-bottom: 8px;
 
-    color: #897a85;
+    color: #e4cad8;
 
-    font-size: .68rem;
+    font-size: .78rem;
 
-    letter-spacing: 2px;
+    letter-spacing: 1px;
 
     text-transform: uppercase;
 }
 
 
 /* ==========================================
-   KONTAKT
+   LINKS
 ========================================== */
 
-.contact-grid {
-    display: grid;
-
-    grid-template-columns:
-        repeat(
-            2,
-            minmax(0,1fr)
-        );
-
-    gap: 12px;
-
-    margin-top: 18px;
-}
-
-.contact-button {
-    display: flex;
-
-    justify-content:
-        space-between;
-
-    align-items: center;
-
-    gap: 15px;
-
-    padding: 17px 18px;
-
-    border-radius: 12px;
+.text-link {
+    color: #d770a6;
 
     text-decoration: none;
 
-    color: #e5d9e1;
-
-    background:
-        rgba(255,255,255,.035);
-
-    border:
+    border-bottom:
         1px solid
-        rgba(255,255,255,.08);
+        rgba(215,112,166,.25);
 
-    transition: .25s;
+    transition:
+        color .2s,
+        border-color .2s;
 }
 
-.contact-button:hover {
-    color: white;
 
-    transform:
-        translateY(-2px);
+.text-link:hover {
+    color: #f0a7cd;
 
     border-color:
-        rgba(215,112,166,.55);
-
-    background:
-        rgba(215,112,166,.08);
-
-    box-shadow:
-        0 10px 30px
-        rgba(215,112,166,.08);
-}
-
-.arrow {
-    color: #d770a6;
+        rgba(240,167,205,.7);
 }
 
 
 /* ==========================================
-   ORIGINAL IMPRESSUM
+   HINWEIS
 ========================================== */
 
-.official {
-    margin-top: 40px;
+.notice {
+    margin-top: 35px;
 
     padding: 22px;
 
-    border-radius: 14px;
+    border-radius: 16px;
 
-    border:
-        1px solid
-        rgba(215,112,166,.20);
+    color: #978793;
 
-    background:
-        rgba(215,112,166,.045);
-}
-
-.official p {
-    color: #a99aa5;
-
-    font-size: .83rem;
+    font-size: .78rem;
 
     line-height: 1.7;
 
-    margin-bottom: 14px;
+    background:
+        rgba(255,255,255,.025);
+
+    border:
+        1px solid
+        rgba(255,255,255,.06);
 }
 
-.official-link {
-    color: #e7a8ca;
 
-    text-decoration: none;
+.notice strong {
+    color: #cdbcc7;
 
-    font-size: .9rem;
-}
-
-.official-link:hover {
-    color: #ffd4e9;
+    font-weight: 500;
 }
 
 
@@ -492,23 +534,33 @@ h1 span {
 ========================================== */
 
 footer {
-    text-align: center;
+    position: relative;
+
+    z-index: 10;
 
     padding:
-        20px 20px 35px;
+        20px 5% 35px;
 
-    color: #6e626b;
+    text-align: center;
 
-    font-size: .75rem;
+    color: #756873;
+
+    font-size: .72rem;
 }
 
+
 footer a {
-    color: #93818f;
+    margin:
+        0 8px;
+
+    color: #94828f;
 
     text-decoration: none;
 
-    margin: 0 8px;
+    transition:
+        color .2s;
 }
+
 
 footer a:hover {
     color: #d770a6;
@@ -519,29 +571,67 @@ footer a:hover {
    MOBILE
 ========================================== */
 
-@media (max-width: 650px) {
+@media (max-width: 700px) {
 
     header {
         padding: 20px;
     }
 
-    main {
-        margin:
-            35px auto 70px;
+
+    .logo {
+        font-size: 1rem;
+
+        letter-spacing: 4px;
     }
 
-    .card {
+
+    .back-button {
+        padding:
+            9px 13px;
+
+        font-size: .68rem;
+    }
+
+
+    main {
+        padding:
+            25px 20px 55px;
+    }
+
+
+    .legal-card {
         padding:
             38px 25px;
+
+        border-radius: 22px;
     }
 
-    .card::before {
+
+    .legal-card::before {
         left: 25px;
     }
 
-    .contact-grid {
-        grid-template-columns:
-            1fr;
+
+    h1 {
+        font-size:
+            clamp(
+                2.5rem,
+                12vw,
+                4rem
+            );
+
+        overflow-wrap: anywhere;
+    }
+
+
+    .section-title {
+        font-size: 1.2rem;
+    }
+
+
+    .background {
+        background-position:
+            68% center;
     }
 
 }
@@ -554,7 +644,12 @@ footer a:hover {
 <body>
 
 
+<!-- ========================================
+     HINTERGRUND
+========================================= -->
+
 <div class="background"></div>
+
 
 
 <!-- ========================================
@@ -563,15 +658,20 @@ footer a:hover {
 
 <header>
 
-    <div class="logo">
+    <a
+        class="logo"
+        href="index.html"
+        aria-label="Zur Startseite"
+    >
         FC<span>✦</span>
-    </div>
+    </a>
+
 
     <a
         class="back-button"
         href="index.html"
     >
-        ← Zurück
+        ← Zurück zur Startseite
     </a>
 
 </header>
@@ -579,16 +679,17 @@ footer a:hover {
 
 
 <!-- ========================================
-     IMPRESSUM
+     HAUPTINHALT
 ========================================= -->
 
 <main>
 
-<section class="card">
+
+<article class="legal-card">
 
 
     <div class="eyebrow">
-        RECHTLICHES · FUSSCONNAISSEUR
+        FUSSCONNAISSEUR · RECHTLICHES
     </div>
 
 
@@ -598,9 +699,11 @@ footer a:hover {
 
 
     <p class="intro">
-        Anbieterkennzeichnung und
-        Kontaktinformationen für den
-        Online-Auftritt FussConnaisseur.
+
+        Angaben zur verantwortlichen Person
+        und Kontaktmöglichkeiten für den
+        Internetauftritt FussConnaisseur.
+
     </p>
 
 
@@ -609,76 +712,92 @@ footer a:hover {
          ANBIETER
     ====================================== -->
 
-    <div class="section">
+    <section class="section">
 
-        <div class="section-title">
-            Anbieter
-        </div>
+        <h2 class="section-title">
+            Angaben zum Anbieter
+        </h2>
 
 
         <div class="info">
 
             <p>
-                <strong>
-                    FussConnaisseur
-                </strong>
-                ist ein Online-Auftritt des
-                nachfolgend genannten Anbieters,
-                der online außerdem unter
-                <strong>KohtaKuma</strong>
-                auftritt.
+                Verantwortlich für diesen
+                Internetauftritt:
             </p>
 
-        </div>
 
+            <div class="info-box">
 
-        <div class="provider-box">
+                <strong>
+                    Anbieter
+                </strong>
 
-            <span class="provider-label">
-                Anbieter
-            </span>
+                Daniel Ehl
 
-            Daniel Ehl
+                <br>
 
+                c/o Online-Impressum 4787
 
-            <br><br>
+                <br>
 
+                Europaring 90
 
-            <span class="provider-label">
-                Online-Bezeichnungen
-            </span>
+                <br>
 
-            FussConnaisseur / KohtaKuma
+                53757 Sankt Augustin
 
+                <br>
 
-            <br><br>
+                Deutschland
 
-
-            <span class="provider-label">
-                Anschrift
-            </span>
-
-            Daniel Ehl
-
-            <br>
-
-            c/o Online-Impressum 4787
-
-            <br>
-
-            Europaring 90
-
-            <br>
-
-            53757 Sankt Augustin
-
-            <br>
-
-            Deutschland
+            </div>
 
         </div>
 
-    </div>
+    </section>
+
+
+
+    <!-- =====================================
+         ONLINE BEZEICHNUNGEN
+    ====================================== -->
+
+    <section class="section">
+
+        <h2 class="section-title">
+            Online-Bezeichnungen
+        </h2>
+
+
+        <div class="info">
+
+            <p>
+                Dieser Internetauftritt und
+                zugehörige Online-Profile
+                können insbesondere unter
+                folgenden Bezeichnungen
+                geführt werden:
+            </p>
+
+
+            <div class="info-box">
+
+                <strong>
+                    Bezeichnungen
+                </strong>
+
+                FussConnaisseur
+
+                <br>
+
+                KohtaKuma
+
+            </div>
+
+        </div>
+
+    </section>
 
 
 
@@ -686,69 +805,99 @@ footer a:hover {
          KONTAKT
     ====================================== -->
 
-    <div class="section">
+    <section class="section">
 
-        <div class="section-title">
+        <h2 class="section-title">
             Kontakt
-        </div>
+        </h2>
 
 
         <div class="info">
 
             <p>
-                Für Kontaktaufnahmen stehen
-                die folgenden Kontaktwege
-                zur Verfügung.
+                E-Mail:
+            </p>
+
+
+            <div class="info-box">
+
+                <strong>
+                    E-Mail-Adresse
+                </strong>
+
+                <a
+                    class="text-link"
+                    href="mailto:kohtakuma@mail.online-impressum.de"
+                >
+                    kohtakuma@mail.online-impressum.de
+                </a>
+
+            </div>
+
+
+            <p>
+                Für rechtliche und sonstige
+                Kontaktanfragen kann die oben
+                genannte E-Mail-Adresse
+                verwendet werden.
             </p>
 
         </div>
 
-
-        <div class="contact-grid">
-
-
-            <!-- E-MAIL -->
-
-            <a
-                class="contact-button"
-                href="mailto:kohtakuma@mail.online-impressum.de"
-            >
-
-                <span>
-                    ✉ E-Mail
-                </span>
-
-                <span class="arrow">
-                    ↗
-                </span>
-
-            </a>
+    </section>
 
 
 
-            <!-- ZWEITER KONTAKTWEG -->
+    <!-- =====================================
+         EXTERNES IMPRESSUM
+    ====================================== -->
 
-            <a
-                class="contact-button"
-                href="https://mein.online-impressum.de/kohtakuma"
-                target="_blank"
-                rel="noopener noreferrer"
-            >
+    <section class="section">
 
-                <span>
-                    ◇ Zweiter Kontaktweg
-                </span>
+        <h2 class="section-title">
+            Zusätzliches Online-Impressum
+        </h2>
 
-                <span class="arrow">
-                    ↗
-                </span>
 
-            </a>
+        <div class="info">
 
+            <p>
+                Zusätzlich ist ein extern
+                bereitgestelltes Impressum
+                über Online-Impressum.de
+                erreichbar:
+            </p>
+
+
+            <div class="info-box">
+
+                <strong>
+                    Online-Impressum
+                </strong>
+
+                <a
+                    class="text-link"
+                    href="https://mein.online-impressum.de/kohtakuma"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    → Externes Impressum öffnen
+                </a>
+
+            </div>
+
+
+            <p>
+                Beim Anklicken des Links
+                verlässt du diese Website.
+                Anschließend gelten die
+                Datenschutzbestimmungen des
+                externen Anbieters.
+            </p>
 
         </div>
 
-    </div>
+    </section>
 
 
 
@@ -756,30 +905,29 @@ footer a:hover {
          GELTUNGSBEREICH
     ====================================== -->
 
-    <div class="section">
+    <section class="section">
 
-        <div class="section-title">
+        <h2 class="section-title">
             Geltungsbereich
-        </div>
+        </h2>
 
 
         <div class="info">
 
             <p>
-                Diese Anbieterkennzeichnung
-                gilt für den Online-Auftritt
-                <strong>FussConnaisseur</strong>.
-            </p>
-
-            <p>
-                Der Betreiber tritt im Internet
-                außerdem unter der Bezeichnung
-                <strong>KohtaKuma</strong> auf.
+                Dieses Impressum gilt für den
+                Internetauftritt
+                FussConnaisseur sowie,
+                soweit dort auf dieses
+                Impressum verwiesen wird,
+                für zugehörige
+                Online-Auftritte und
+                Social-Media-Profile.
             </p>
 
         </div>
 
-    </div>
+    </section>
 
 
 
@@ -787,60 +935,96 @@ footer a:hover {
          VERBRAUCHERSTREITBEILEGUNG
     ====================================== -->
 
-    <div class="section">
+    <section class="section">
 
-        <div class="section-title">
+        <h2 class="section-title">
             Verbraucherstreitbeilegung
-        </div>
+        </h2>
 
 
         <div class="info">
 
             <p>
-                Ich bin nicht bereit oder
-                verpflichtet, an
+                Ich bin nicht bereit und
+                nicht verpflichtet, an
                 Streitbeilegungsverfahren vor
-                einer Verbraucherschlichtungsstelle
+                einer
+                Verbraucherschlichtungsstelle
                 teilzunehmen.
             </p>
 
         </div>
 
-    </div>
+    </section>
 
 
 
     <!-- =====================================
-         ONLINE-IMPRESSUM
+         DATENSCHUTZ
     ====================================== -->
 
-    <div class="official">
+    <section class="section">
 
-        <p>
-            Die verwendete c/o-Anschrift und
-            weitere Kontaktmöglichkeiten werden
-            über Online-Impressum.de
-            bereitgestellt.
-
-            Das dort hinterlegte
-            Online-Impressum ist zusätzlich
-            direkt erreichbar.
-        </p>
+        <h2 class="section-title">
+            Datenschutz
+        </h2>
 
 
-        <a
-            class="official-link"
-            href="https://mein.online-impressum.de/kohtakuma"
-            target="_blank"
-            rel="noopener noreferrer"
-        >
-            ✦ Online-Impressum öffnen ↗
-        </a>
+        <div class="info">
+
+            <p>
+                Informationen zur
+                Verarbeitung
+                personenbezogener Daten beim
+                Besuch dieser Website
+                findest du in der
+                Datenschutzerklärung.
+            </p>
+
+
+            <p>
+
+                <a
+                    class="text-link"
+                    href="datenschutz.html"
+                >
+                    → Datenschutzerklärung öffnen
+                </a>
+
+            </p>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================
+         HINWEIS
+    ====================================== -->
+
+    <div class="notice">
+
+        <strong>
+            Stand: September 2026
+        </strong>
+
+        <br><br>
+
+        Dieses Impressum bezieht sich auf
+        den Internetauftritt
+        FussConnaisseur.
+
+        Die für die Anbieterkennzeichnung
+        verwendete Anschrift und
+        E-Mail-Adresse werden über
+        Online-Impressum.de bereitgestellt.
 
     </div>
 
 
-</section>
+</article>
+
 
 </main>
 
@@ -862,6 +1046,12 @@ footer a:hover {
 
     ·
 
+    <a href="impressum.html">
+        Impressum
+    </a>
+
+    ·
+
     <a href="datenschutz.html">
         Datenschutz
     </a>
@@ -870,5 +1060,4 @@ footer a:hover {
 
 
 </body>
-
 </html>
