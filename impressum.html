@@ -8,77 +8,192 @@
 
 <style>
 
+/* ==========================================
+   GRUNDEINSTELLUNGEN
+========================================== */
+
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     min-height: 100vh;
-    font-family: Arial, Helvetica, sans-serif;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
     color: #f5eef5;
 
     background:
-        radial-gradient(circle at 75% 40%, rgba(137, 28, 88, .32), transparent 35%),
-        radial-gradient(circle at 20% 80%, rgba(89, 16, 63, .25), transparent 35%),
-        linear-gradient(135deg, #08070b, #160b14 50%, #09070b);
+        radial-gradient(
+            circle at 75% 35%,
+            rgba(137, 28, 88, .28),
+            transparent 35%
+        ),
 
-    display: flex;
-    flex-direction: column;
+        radial-gradient(
+            circle at 20% 80%,
+            rgba(89, 16, 63, .20),
+            transparent 35%
+        ),
+
+        linear-gradient(
+            135deg,
+            #050407,
+            #140912 50%,
+            #070508
+        );
+
+    overflow-x: hidden;
 }
 
+
+/* ==========================================
+   HINTERGRUND
+========================================== */
+
+.background {
+    position: fixed;
+
+    inset: 0;
+
+    z-index: -5;
+
+    pointer-events: none;
+
+    background:
+        radial-gradient(
+            circle at 75% 40%,
+            rgba(153, 38, 94, .13),
+            transparent 30%
+        );
+}
+
+.background::after {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        radial-gradient(
+            circle at center,
+            transparent 20%,
+            rgba(0,0,0,.58) 100%
+        );
+}
+
+
+/* ==========================================
+   HEADER
+========================================== */
+
 header {
+
+    width: 100%;
+
     padding: 28px 5%;
 
     display: flex;
+
     justify-content: space-between;
+
     align-items: center;
+
+    position: relative;
+
+    z-index: 10;
 }
 
+
 .logo {
+
     font-family: Georgia, serif;
+
     font-size: 1.3rem;
+
     letter-spacing: 5px;
+
     font-weight: bold;
 }
 
+
 .logo span {
+
     color: #d770a6;
 }
 
-.back {
-    color: #bcaab7;
+
+.back-button {
+
     text-decoration: none;
 
-    border: 1px solid rgba(255,255,255,.12);
-    border-radius: 30px;
+    color: #ddd;
 
     padding: 10px 18px;
+
+    border-radius: 25px;
+
+    border:
+        1px solid
+        rgba(255,255,255,.13);
+
+    background:
+        rgba(15,10,15,.55);
+
+    backdrop-filter: blur(10px);
 
     transition: .25s;
 }
 
-.back:hover {
+
+.back-button:hover {
+
     color: white;
+
     border-color: #d770a6;
-    background: rgba(215,112,166,.08);
+
+    background:
+        rgba(215,112,166,.08);
 }
+
+
+/* ==========================================
+   MAIN
+========================================== */
 
 main {
-    flex: 1;
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    width:
+        min(
+            820px,
+            calc(100% - 40px)
+        );
 
-    padding: 50px 20px;
+    margin:
+        70px auto 100px;
 }
 
-.card {
-    width: min(700px, 100%);
 
-    padding: 50px;
+/* ==========================================
+   GLASS CARD
+========================================== */
+
+.card {
+
+    position: relative;
+
+    padding: 55px;
 
     border-radius: 26px;
 
@@ -89,205 +204,740 @@ main {
             rgba(15,10,17,.72)
         );
 
-    border: 1px solid rgba(255,255,255,.12);
+    border:
+        1px solid
+        rgba(255,255,255,.12);
 
-    backdrop-filter: blur(22px);
+    backdrop-filter:
+        blur(22px);
 
     box-shadow:
-        0 30px 80px rgba(0,0,0,.55),
-        inset 0 1px 0 rgba(255,255,255,.08);
 
-    position: relative;
+        0 30px 80px
+        rgba(0,0,0,.55),
+
+        inset 0 1px 0
+        rgba(255,255,255,.07);
+
+    animation:
+        cardIn .8s ease;
 }
 
+
+@keyframes cardIn {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(25px);
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0);
+    }
+
+}
+
+
+/* pinke obere Linie */
+
 .card::before {
+
     content: "";
 
     position: absolute;
 
     top: -1px;
-    left: 50px;
 
-    width: 100px;
+    left: 55px;
+
+    width: 110px;
+
     height: 2px;
 
-    background: #d770a6;
+    background:
+        #d770a6;
 
     box-shadow:
-        0 0 15px #d770a6,
-        0 0 30px rgba(215,112,166,.5);
+
+        0 0 15px
+        #d770a6,
+
+        0 0 30px
+        rgba(215,112,166,.4);
 }
 
+
+/* ==========================================
+   TYPOGRAFIE
+========================================== */
+
 .eyebrow {
+
     color: #a895a4;
 
-    font-size: .7rem;
+    font-size: .68rem;
+
     letter-spacing: 5px;
 
     margin-bottom: 18px;
 }
 
-h1 {
-    font-family: Georgia, serif;
 
-    font-size: clamp(2.5rem, 7vw, 4.5rem);
+h1 {
+
+    font-family:
+        Georgia,
+        serif;
+
+    font-size:
+        clamp(
+            3rem,
+            7vw,
+            5rem
+        );
+
+    line-height: 1;
 
     font-weight: normal;
-
-    margin-bottom: 25px;
-}
-
-h1 span {
-    color: #d770a6;
-}
-
-p {
-    color: #c8bac5;
-
-    line-height: 1.8;
 
     margin-bottom: 18px;
 }
 
-.impressum-button {
-    display: block;
 
-    width: 100%;
+h1 span {
 
-    margin-top: 30px;
+    color: #d770a6;
+}
 
-    padding: 18px 22px;
+
+.intro {
+
+    color: #a99ba5;
+
+    line-height: 1.7;
+
+    margin-bottom: 40px;
+}
+
+
+/* ==========================================
+   ABSCHNITTE
+========================================== */
+
+.section {
+
+    margin-top: 35px;
+
+    padding-top: 30px;
+
+    border-top:
+        1px solid
+        rgba(255,255,255,.07);
+}
+
+
+.section-title {
+
+    color: #df9fc1;
+
+    font-family:
+        Georgia,
+        serif;
+
+    font-size: 1.3rem;
+
+    margin-bottom: 18px;
+}
+
+
+.info {
+
+    color: #c8bac5;
+
+    line-height: 1.8;
+
+    font-size: .95rem;
+}
+
+
+.info strong {
+
+    color: #f2e6ed;
+
+    font-weight: normal;
+}
+
+
+/* ==========================================
+   ADRESSE
+========================================== */
+
+.address {
+
+    margin-top: 12px;
+
+    padding: 20px;
 
     border-radius: 12px;
 
-    border: 1px solid rgba(215,112,166,.35);
+    background:
+        rgba(255,255,255,.025);
 
-    background: rgba(215,112,166,.08);
+    border:
+        1px solid
+        rgba(255,255,255,.07);
 
-    color: #f0dce7;
+    line-height: 1.8;
+
+    color: #d5c8d1;
+}
+
+
+/* ==========================================
+   KONTAKT
+========================================== */
+
+.contact-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            2,
+            minmax(0,1fr)
+        );
+
+    gap: 12px;
+
+    margin-top: 18px;
+}
+
+
+.contact-button {
+
+    display: flex;
+
+    justify-content:
+        space-between;
+
+    align-items: center;
+
+    gap: 15px;
+
+    padding: 17px 18px;
+
+    border-radius: 12px;
 
     text-decoration: none;
 
-    text-align: center;
+    color: #e5d9e1;
 
-    font-weight: bold;
+    background:
+        rgba(255,255,255,.035);
+
+    border:
+        1px solid
+        rgba(255,255,255,.08);
 
     transition: .25s;
 }
 
-.impressum-button:hover {
-    transform: translateY(-2px);
 
-    background: rgba(215,112,166,.16);
+.contact-button:hover {
 
-    border-color: #d770a6;
+    color: white;
+
+    transform:
+        translateY(-2px);
+
+    border-color:
+        rgba(215,112,166,.55);
+
+    background:
+        rgba(215,112,166,.08);
 
     box-shadow:
-        0 10px 30px rgba(215,112,166,.12);
+        0 10px 30px
+        rgba(215,112,166,.08);
 }
 
-.note {
-    margin-top: 20px;
 
-    color: #81737d;
+.arrow {
 
-    font-size: .75rem;
-
-    text-align: center;
+    color: #d770a6;
 }
+
+
+/* ==========================================
+   EXTERNES ORIGINAL
+========================================== */
+
+.official {
+
+    margin-top: 40px;
+
+    padding: 22px;
+
+    border-radius: 14px;
+
+    border:
+        1px solid
+        rgba(215,112,166,.20);
+
+    background:
+        rgba(215,112,166,.045);
+}
+
+
+.official p {
+
+    color: #a99aa5;
+
+    font-size: .83rem;
+
+    line-height: 1.7;
+
+    margin-bottom: 14px;
+}
+
+
+.official-link {
+
+    color: #e7a8ca;
+
+    text-decoration: none;
+
+    font-size: .9rem;
+}
+
+
+.official-link:hover {
+
+    color: #ffd4e9;
+}
+
+
+/* ==========================================
+   FOOTER
+========================================== */
 
 footer {
-    padding: 25px;
 
     text-align: center;
+
+    padding:
+        20px 20px 35px;
 
     color: #6e626b;
 
     font-size: .75rem;
 }
 
+
 footer a {
-    color: #a18c9b;
+
+    color: #93818f;
+
     text-decoration: none;
+
+    margin: 0 8px;
 }
 
-@media (max-width: 600px) {
+
+footer a:hover {
+
+    color: #d770a6;
+}
+
+
+/* ==========================================
+   MOBILE
+========================================== */
+
+@media
+(max-width: 650px) {
+
+    header {
+
+        padding:
+            20px;
+    }
+
+
+    main {
+
+        margin:
+            35px auto 70px;
+    }
+
 
     .card {
-        padding: 35px 25px;
+
+        padding:
+            38px 25px;
+    }
+
+
+    .card::before {
+
+        left: 25px;
+    }
+
+
+    .contact-grid {
+
+        grid-template-columns:
+            1fr;
     }
 
 }
 
 </style>
+
 </head>
 
+
 <body>
+
+
+<div class="background"></div>
+
+
+<!-- ========================================
+     HEADER
+========================================= -->
 
 <header>
 
     <div class="logo">
+
         FC<span>✦</span>
+
     </div>
 
-    <a class="back" href="index.html">
+
+    <a
+        class="back-button"
+        href="index.html"
+    >
+
         ← Zurück
+
     </a>
 
 </header>
 
 
+
+<!-- ========================================
+     IMPRESSUM
+========================================= -->
+
 <main>
 
-    <section class="card">
+<section class="card">
 
-        <div class="eyebrow">
-            RECHTLICHES
+
+    <div class="eyebrow">
+
+        RECHTLICHES · FUSSCONNAISSEUR
+
+    </div>
+
+
+    <h1>
+
+        Impres<span>sum.</span>
+
+    </h1>
+
+
+    <p class="intro">
+
+        Angaben gemäß den gesetzlichen
+        Informationspflichten.
+
+    </p>
+
+
+
+    <!-- ANBIETER -->
+
+    <div class="section">
+
+
+        <div class="section-title">
+
+            Anbieter
+
         </div>
 
-        <h1>
-            Impres<span>sum.</span>
-        </h1>
+
+        <div class="info">
+
+            <strong>
+                kohtaKuma — Daniel Ehl
+            </strong>
+
+        </div>
+
+
+        <div class="address">
+
+            kohtaKuma — Daniel Ehl
+
+            <br>
+
+            c/o Online-Impressum 4787
+
+            <br>
+
+            Europaring 90
+
+            <br>
+
+            53757 Sankt Augustin
+
+            <br>
+
+            Deutschland
+
+        </div>
+
+
+    </div>
+
+
+
+    <!-- KONTAKT -->
+
+    <div class="section">
+
+
+        <div class="section-title">
+
+            Kontakt
+
+        </div>
+
+
+        <div class="info">
+
+            Für rechtlich relevante
+            Kontaktaufnahmen stehen die
+            folgenden Kontaktwege zur Verfügung.
+
+        </div>
+
+
+        <div class="contact-grid">
+
+
+            <!-- EMAIL -->
+
+            <a
+                class="contact-button"
+                href="mailto:kohtakuma@mail.online-impressum.de"
+            >
+
+                <span>
+                    ✉ E-Mail
+                </span>
+
+                <span class="arrow">
+                    ↗
+                </span>
+
+            </a>
+
+
+
+            <!-- ZWEITER KONTAKTWEG -->
+
+            <a
+                class="contact-button"
+                href="https://mein.online-impressum.de/kohtakuma"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+
+                <span>
+                    ◇ Zweiter Kontaktweg
+                </span>
+
+                <span class="arrow">
+                    ↗
+                </span>
+
+            </a>
+
+
+        </div>
+
+
+    </div>
+
+
+
+    <!-- AUFSICHT -->
+
+    <div class="section">
+
+
+        <div class="section-title">
+
+            Zuständige Aufsichtsbehörde
+
+        </div>
+
+
+        <div class="info">
+
+            Landesanstalt für Medien
+            Nordrhein-Westfalen
+
+            <br>
+
+            Sitz: Deutschland
+
+        </div>
+
+
+    </div>
+
+
+
+    <!-- GELTUNGSBEREICH -->
+
+    <div class="section">
+
+
+        <div class="section-title">
+
+            Geltungsbereich
+
+        </div>
+
+
+        <div class="info">
+
+            Das angegebene Impressum gilt
+            für FussConnaisseur sowie die
+            dazugehörigen angegebenen
+            Online- und Social-Media-Auftritte.
+
+        </div>
+
+
+    </div>
+
+
+
+    <!-- STREITBEILEGUNG -->
+
+    <div class="section">
+
+
+        <div class="section-title">
+
+            Verbraucherstreitbeilegung
+
+        </div>
+
+
+        <div class="info">
+
+            Ich bin nicht bereit oder
+            verpflichtet, an
+            Streitbeilegungsverfahren vor
+            einer Verbraucherschlichtungsstelle
+            teilzunehmen.
+
+        </div>
+
+
+    </div>
+
+
+
+    <!-- ORIGINAL IMPRESSUM -->
+
+    <div class="official">
+
 
         <p>
-            Angaben gemäß den gesetzlichen
-            Informationspflichten findest du in
-            meinem zentralen Online-Impressum.
+
+            Die Impressumsanschrift und der
+            zweite Kontaktweg werden über
+            Online-Impressum.de bereitgestellt.
+
+            Das dort hinterlegte Impressum
+            bleibt zusätzlich direkt erreichbar.
+
         </p>
 
-        <p>
-            Das dort hinterlegte Impressum gilt
-            für FussConnaisseur sowie meine
-            angegebenen Online- und
-            Social-Media-Auftritte.
-        </p>
 
         <a
-            class="impressum-button"
+            class="official-link"
             href="https://mein.online-impressum.de/kohtakuma"
             target="_blank"
             rel="noopener noreferrer"
         >
-            ✦ Vollständiges Impressum öffnen
+
+            ✦ Offizielles Online-Impressum öffnen ↗
+
         </a>
 
-        <div class="note">
-            Das vollständige Impressum wird über
-            Online-Impressum.de bereitgestellt.
-        </div>
 
-    </section>
+    </div>
+
+
+</section>
 
 </main>
 
 
+
+<!-- ========================================
+     FOOTER
+========================================= -->
+
 <footer>
 
+
     © 2026 FussConnaisseur
+
+
     ·
-    <a href="index.html">Startseite</a>
+
+
+    <a href="index.html">
+
+        Startseite
+
+    </a>
+
+
+    ·
+
+
+    <a href="datenschutz.html">
+
+        Datenschutz
+
+    </a>
+
 
 </footer>
 
+
 </body>
+
 </html>
