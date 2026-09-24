@@ -12,6 +12,22 @@
     content="FussConnaisseur – Gaming, Streaming, Anime und mehr."
 >
 
+<!-- ==========================================
+     FAVICON
+========================================== -->
+
+<link
+    rel="icon"
+    type="image/png"
+    href="favicon.png"
+>
+
+<link
+    rel="shortcut icon"
+    href="favicon.png"
+>
+
+
 <style>
 
 /* ==========================================
@@ -41,6 +57,13 @@ body {
     background: #080508;
 
     overflow-x: hidden;
+}
+
+
+/* Während der Enter-Screen sichtbar ist */
+
+body.intro-active {
+    overflow: hidden;
 }
 
 
@@ -188,6 +211,318 @@ body::before {
 
 
 /* ==========================================
+   ENTER SCREEN
+========================================== */
+
+.enter-screen {
+    position: fixed;
+    inset: 0;
+
+    z-index: 9999;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 25px;
+
+    background: #070507;
+
+    opacity: 1;
+    visibility: visible;
+
+    transition:
+        opacity .85s ease,
+        visibility .85s ease;
+}
+
+
+/* Hintergrundbild auch auf dem Enter-Screen */
+
+.enter-screen::before {
+    content: "";
+
+    position: absolute;
+    inset: -15px;
+
+    z-index: -2;
+
+    background-image:
+        linear-gradient(
+            90deg,
+            rgba(5,3,6,.95) 0%,
+            rgba(8,4,8,.82) 30%,
+            rgba(12,5,11,.52) 65%,
+            rgba(7,3,7,.35) 100%
+        ),
+        url("background.webp");
+
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+
+    transform: scale(1.03);
+}
+
+
+/* Vignette */
+
+.enter-screen::after {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    z-index: -1;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(0,0,0,.03),
+            rgba(0,0,0,.55) 90%
+        );
+}
+
+
+.enter-screen.hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+
+/* ==========================================
+   ENTER CONTENT
+========================================== */
+
+.enter-content {
+    width:
+        min(
+            650px,
+            100%
+        );
+
+    padding:
+        55px 45px;
+
+    text-align: center;
+
+    border-radius: 28px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(24,15,25,.88),
+            rgba(10,7,12,.78)
+        );
+
+    border:
+        1px solid
+        rgba(255,255,255,.12);
+
+    backdrop-filter: blur(22px);
+    -webkit-backdrop-filter: blur(22px);
+
+    box-shadow:
+        0 35px 100px
+        rgba(0,0,0,.55),
+
+        inset 0 1px 0
+        rgba(255,255,255,.07);
+
+    animation:
+        enterEntrance .9s ease;
+}
+
+
+@keyframes enterEntrance {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(20px)
+            scale(.98);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+    }
+
+}
+
+
+/* ==========================================
+   ENTER MINI LOGO
+========================================== */
+
+.enter-brand {
+    margin-bottom: 25px;
+
+    color: #a895a4;
+
+    font-size: .62rem;
+
+    letter-spacing: 6px;
+
+    text-transform: uppercase;
+}
+
+
+/* ==========================================
+   ENTER TITEL
+========================================== */
+
+.enter-title {
+    margin-bottom: 25px;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size:
+        clamp(
+            3rem,
+            7vw,
+            5.2rem
+        );
+
+    line-height: .95;
+
+    font-weight: normal;
+
+    letter-spacing: -3px;
+
+    color: #f3eaf0;
+
+    text-shadow:
+        0 5px 35px
+        rgba(0,0,0,.5);
+}
+
+
+.enter-title span {
+    color: #d770a6;
+
+    text-shadow:
+        0 0 25px
+        rgba(215,112,166,.25);
+}
+
+
+/* ==========================================
+   ENTER ZITAT
+========================================== */
+
+.enter-quote {
+    margin-bottom: 30px;
+
+    color: #b8a9b3;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: 1rem;
+
+    font-style: italic;
+
+    line-height: 1.7;
+}
+
+
+/* ==========================================
+   ENTER BUTTON
+========================================== */
+
+.enter-button {
+    cursor: pointer;
+
+    min-width: 180px;
+
+    padding:
+        14px 28px;
+
+    border-radius: 40px;
+
+    border:
+        1px solid
+        rgba(215,112,166,.45);
+
+    color: #f3e8ef;
+
+    font-family: inherit;
+
+    font-size: .72rem;
+
+    letter-spacing: 4px;
+
+    text-transform: uppercase;
+
+    background:
+        rgba(215,112,166,.10);
+
+    box-shadow:
+        0 0 25px
+        rgba(215,112,166,.08);
+
+    transition:
+        transform .25s,
+        background .25s,
+        border-color .25s,
+        box-shadow .25s;
+}
+
+
+.enter-button:hover {
+    transform:
+        translateY(-2px);
+
+    background:
+        rgba(215,112,166,.18);
+
+    border-color:
+        rgba(215,112,166,.85);
+
+    box-shadow:
+        0 0 30px
+        rgba(215,112,166,.16);
+}
+
+
+/* ==========================================
+   ENTER YOUTUBE HINWEIS
+========================================== */
+
+.enter-notice {
+    max-width: 440px;
+
+    margin:
+        20px auto 0;
+
+    color: #82737e;
+
+    font-size: .6rem;
+
+    line-height: 1.55;
+}
+
+
+.enter-notice strong {
+    color: #a995a2;
+
+    font-weight: 500;
+}
+
+
+/* ==========================================
    HEADER
 ========================================== */
 
@@ -224,6 +559,8 @@ header {
     letter-spacing: 5px;
 
     color: #f3eaf0;
+
+    text-decoration: none;
 
     text-shadow:
         0 0 20px
@@ -264,7 +601,6 @@ header {
         rgba(10,7,11,.55);
 
     backdrop-filter: blur(12px);
-
     -webkit-backdrop-filter: blur(12px);
 
     transition:
@@ -333,7 +669,6 @@ main {
         rgba(255,255,255,.12);
 
     backdrop-filter: blur(22px);
-
     -webkit-backdrop-filter: blur(22px);
 
     box-shadow:
@@ -702,7 +1037,6 @@ h1 span {
         rgba(255,255,255,.10);
 
     backdrop-filter: blur(18px);
-
     -webkit-backdrop-filter: blur(18px);
 
     box-shadow:
@@ -717,8 +1051,6 @@ h1 span {
     align-items: center;
 
     gap: 13px;
-
-    margin-bottom: 14px;
 }
 
 
@@ -729,7 +1061,6 @@ h1 span {
     display: flex;
 
     align-items: center;
-
     justify-content: center;
 
     flex-shrink: 0;
@@ -753,10 +1084,15 @@ h1 span {
 }
 
 
+.music-text {
+    flex: 1;
+}
+
+
 .music-label {
     margin-bottom: 3px;
 
-    color: #8e7c89;
+    color: #d770a6;
 
     font-size: .52rem;
 
@@ -787,123 +1123,118 @@ h1 span {
 
 
 /* ==========================================
-   YOUTUBE-HINWEIS
+   PLAY / PAUSE
 ========================================== */
 
-.youtube-placeholder {
+.music-control {
+    width: 39px;
+    height: 39px;
+
     display: flex;
 
     align-items: center;
+    justify-content: center;
 
-    justify-content: space-between;
-
-    gap: 12px;
-
-    padding-top: 12px;
-
-    border-top:
-        1px solid
-        rgba(255,255,255,.07);
-}
-
-
-.youtube-note {
-    display: flex;
-
-    flex-direction: column;
-
-    gap: 3px;
-
-    color: #897985;
-
-    font-size: .58rem;
-
-    line-height: 1.35;
-}
-
-
-.youtube-note strong {
-    color: #bcaab6;
-
-    font-size: .62rem;
-}
-
-
-.youtube-load {
     flex-shrink: 0;
 
     cursor: pointer;
 
-    padding:
-        8px 11px;
-
-    border-radius: 20px;
+    border-radius: 50%;
 
     border:
         1px solid
-        rgba(215,112,166,.25);
+        rgba(215,112,166,.30);
 
-    color: #e3cad7;
-
-    font-family: inherit;
-
-    font-size: .62rem;
+    color: #e9d7e1;
 
     background:
         rgba(215,112,166,.08);
 
     transition:
         transform .2s,
-        color .2s,
-        border-color .2s,
-        background .2s;
+        background .2s,
+        border-color .2s;
 }
 
 
-.youtube-load:hover {
-    color: white;
-
-    border-color:
-        rgba(215,112,166,.65);
+.music-control:hover {
+    transform: scale(1.06);
 
     background:
         rgba(215,112,166,.15);
 
-    transform:
-        translateY(-1px);
+    border-color:
+        rgba(215,112,166,.65);
 }
 
 
 /* ==========================================
-   EINGEBETTETER YOUTUBE PLAYER
+   MUSIK STATUS
 ========================================== */
 
-.youtube-player {
-    display: none;
-
+.music-status {
     margin-top: 12px;
 
-    overflow: hidden;
+    padding-top: 10px;
 
-    border-radius: 12px;
-
-    aspect-ratio: 16 / 9;
-
-    background: #000;
-
-    border:
+    border-top:
         1px solid
         rgba(255,255,255,.06);
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 7px;
+
+    color: #786a75;
+
+    font-size: .56rem;
+
+    letter-spacing: 1px;
+
+    text-transform: uppercase;
 }
 
 
-.youtube-player iframe {
-    display: block;
+.status-dot {
+    width: 5px;
+    height: 5px;
 
-    width: 100%;
-    height: 100%;
+    border-radius: 50%;
 
-    border: 0;
+    background: #d770a6;
+
+    box-shadow:
+        0 0 8px
+        rgba(215,112,166,.8);
+}
+
+
+/* ==========================================
+   VERSTECKTER YOUTUBE PLAYER
+========================================== */
+
+/*
+   Das Iframe muss existieren,
+   damit die YouTube API funktioniert.
+
+   Es wird aber außerhalb des sichtbaren
+   Bereichs positioniert.
+*/
+
+.youtube-player {
+    position: fixed;
+
+    width: 1px;
+    height: 1px;
+
+    left: -9999px;
+    top: -9999px;
+
+    opacity: 0;
+
+    pointer-events: none;
 }
 
 
@@ -1142,6 +1473,16 @@ body.effects-off .background {
             0 auto 30px;
     }
 
+    .enter-screen::before {
+        background-position:
+            68% center;
+    }
+
+    .enter-content {
+        padding:
+            42px 25px;
+    }
+
 }
 
 
@@ -1160,14 +1501,8 @@ body.effects-off .background {
         font-size: 2.4rem;
     }
 
-    .youtube-placeholder {
-        flex-direction: column;
-
-        align-items: stretch;
-    }
-
-    .youtube-load {
-        width: 100%;
+    .enter-title {
+        font-size: 2.7rem;
     }
 
 }
@@ -1177,7 +1512,62 @@ body.effects-off .background {
 </head>
 
 
-<body>
+<body class="intro-active">
+
+
+<!-- ========================================
+     ENTER SCREEN
+========================================= -->
+
+<div
+    class="enter-screen"
+    id="enterScreen"
+>
+
+    <div class="enter-content">
+
+        <div class="enter-brand">
+            FUSSCONNAISSEUR · ONLINE
+        </div>
+
+
+        <div class="enter-title">
+            Fuss<span>Connaisseur.</span>
+        </div>
+
+
+        <div class="enter-quote">
+
+            „Stil beginnt am Kopf.<br>
+            Geschmack manchmal an den Zehenspitzen.“
+
+        </div>
+
+
+        <button
+            class="enter-button"
+            id="enterButton"
+            type="button"
+        >
+            ENTER
+        </button>
+
+
+        <div class="enter-notice">
+
+            Mit <strong>ENTER</strong> betrittst du
+            die Seite und lädst den eingebetteten
+            YouTube-Player.
+
+            Dabei kann eine Verbindung zu
+            YouTube / Google hergestellt werden.
+
+        </div>
+
+    </div>
+
+</div>
+
 
 
 <!-- ========================================
@@ -1185,6 +1575,7 @@ body.effects-off .background {
 ========================================= -->
 
 <div class="background"></div>
+
 
 
 <!-- ========================================
@@ -1201,9 +1592,13 @@ body.effects-off .background {
 
 <header>
 
-    <div class="logo">
+    <a
+        class="logo"
+        href="index.html"
+        aria-label="FussConnaisseur Startseite"
+    >
         FC<span>✦</span>
-    </div>
+    </a>
 
 
     <button
@@ -1243,6 +1638,8 @@ body.effects-off .background {
         Willkommen in meiner kleinen Ecke des Internets.
         Hier findest du meine Socials, Profile und alles,
         wo ich sonst so herumgeistere.
+
+        <br><br>
 
         Denk immer dran:
         Andere sehen Füße.
@@ -1462,7 +1859,7 @@ body.effects-off .background {
 
 
 <!-- ========================================
-     MUSIK / YOUTUBE
+     MUSIK
 ========================================= -->
 
 <section class="music-area">
@@ -1472,15 +1869,16 @@ body.effects-off .background {
 
         <div class="music-info">
 
+
             <span class="music-icon">
                 ♫
             </span>
 
 
-            <div>
+            <div class="music-text">
 
                 <div class="music-label">
-                    CURRENT VIBE
+                    NOW PLAYING
                 </div>
 
                 <div class="music-title">
@@ -1493,60 +1891,46 @@ body.effects-off .background {
 
             </div>
 
-        </div>
-
-
-
-        <!--
-            YouTube wird an dieser Stelle
-            NOCH NICHT geladen.
-        -->
-
-        <div
-            class="youtube-placeholder"
-            id="youtubePlaceholder"
-        >
-
-            <div class="youtube-note">
-
-                <strong>
-                    YouTube-Inhalt
-                </strong>
-
-                <span>
-                    Der Player wird erst
-                    nach deinem Klick geladen.
-                </span>
-
-            </div>
-
 
             <button
-                class="youtube-load"
-                id="loadYoutube"
+                class="music-control"
+                id="musicControl"
                 type="button"
+                aria-label="Musik pausieren"
+                title="Play / Pause"
             >
-                ▶ YouTube laden
+                ❚❚
             </button>
+
 
         </div>
 
 
+        <div class="music-status">
 
-        <!--
-            Hier wird später per JavaScript
-            das YouTube-Iframe eingefügt.
-        -->
+            <span class="status-dot"></span>
 
-        <div
-            class="youtube-player"
-            id="youtubePlayer"
-        ></div>
+            <span id="musicStatus">
+                Bereit
+            </span>
+
+        </div>
 
 
     </div>
 
 </section>
+
+
+
+<!-- ========================================
+     VERSTECKTER YOUTUBE PLAYER
+========================================= -->
+
+<div
+    class="youtube-player"
+    id="youtubePlayer"
+></div>
 
 
 
@@ -1762,109 +2146,403 @@ document
 
 
 /* ==========================================
-   YOUTUBE PLAYER
+   YOUTUBE IFRAME API
 ========================================== */
 
 /*
-    Wichtig:
+    Die API wird erst nach ENTER geladen.
 
-    Beim normalen Aufruf der Website
-    existiert noch KEIN YouTube-Iframe.
-
-    Erst wenn der Besucher auf
-    "YouTube laden" klickt,
-    wird der externe Inhalt eingebunden.
+    Vor dem Klick besteht über diesen
+    Player keine Verbindung zu YouTube.
 */
 
+let player = null;
 
-const loadYoutubeButton =
+let playerReady = false;
+
+let musicPlaying = false;
+
+
+const enterScreen =
     document.getElementById(
-        "loadYoutube"
+        "enterScreen"
     );
 
 
-const youtubePlaceholder =
+const enterButton =
     document.getElementById(
-        "youtubePlaceholder"
+        "enterButton"
     );
 
 
-const youtubePlayer =
+const musicControl =
     document.getElementById(
-        "youtubePlayer"
+        "musicControl"
     );
 
 
-loadYoutubeButton.addEventListener(
+const musicStatus =
+    document.getElementById(
+        "musicStatus"
+    );
+
+
+
+/* ==========================================
+   YOUTUBE API LADEN
+========================================== */
+
+function loadYouTubeAPI() {
+
+    /*
+        Verhindert doppeltes Laden
+    */
+
+    if (
+        document.getElementById(
+            "youtube-api"
+        )
+    ) {
+        return;
+    }
+
+
+    const tag =
+        document.createElement(
+            "script"
+        );
+
+
+    tag.id =
+        "youtube-api";
+
+
+    tag.src =
+        "https://www.youtube.com/iframe_api";
+
+
+    document.body.appendChild(
+        tag
+    );
+
+}
+
+
+
+/* ==========================================
+   ENTER
+========================================== */
+
+enterButton.addEventListener(
     "click",
     function () {
 
 
-        const iframe =
-            document.createElement(
-                "iframe"
-            );
-
-
         /*
-            WORSHIP – Magnolia Park
-
-            Datenschutzfreundlichere
-            YouTube-Nocookie-Domain
+            Button sperren,
+            damit nicht mehrfach geklickt wird.
         */
 
-        iframe.src =
-            "https://www.youtube-nocookie.com/embed/_7UCOK5Wv-c?controls=1&playsinline=1";
-
-
-        iframe.title =
-            "Magnolia Park – WORSHIP";
-
-
-        iframe.allow =
-            "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
-
-
-        iframe.referrerPolicy =
-            "strict-origin-when-cross-origin";
-
-
-        iframe.allowFullscreen =
+        enterButton.disabled =
             true;
 
 
+        enterButton.textContent =
+            "LÄDT ...";
+
+
+        musicStatus.textContent =
+            "YouTube wird geladen";
+
 
         /*
-            Iframe in den Player einsetzen
+            Jetzt erst wird die
+            YouTube API geladen.
         */
 
-        youtubePlayer.appendChild(
-            iframe
+        loadYouTubeAPI();
+
+
+        /*
+            Enter-Screen weich ausblenden.
+        */
+
+        setTimeout(
+            function () {
+
+                enterScreen.classList.add(
+                    "hidden"
+                );
+
+
+                document.body.classList.remove(
+                    "intro-active"
+                );
+
+            },
+            300
+        );
+
+    }
+);
+
+
+
+/* ==========================================
+   YOUTUBE API IST BEREIT
+========================================== */
+
+/*
+    Diese Funktion wird automatisch
+    von der YouTube API aufgerufen.
+*/
+
+function onYouTubeIframeAPIReady() {
+
+
+    player =
+        new YT.Player(
+            "youtubePlayer",
+            {
+
+                width: "1",
+
+                height: "1",
+
+                videoId:
+                    "_7UCOK5Wv-c",
+
+
+                playerVars: {
+
+                    autoplay: 1,
+
+                    controls: 0,
+
+                    playsinline: 1,
+
+                    rel: 0,
+
+                    modestbranding: 1
+
+                },
+
+
+                events: {
+
+                    onReady:
+                        onPlayerReady,
+
+                    onStateChange:
+                        onPlayerStateChange,
+
+                    onError:
+                        onPlayerError
+
+                }
+
+            }
+        );
+
+}
+
+
+
+/* ==========================================
+   PLAYER BEREIT
+========================================== */
+
+function onPlayerReady(event) {
+
+    playerReady = true;
+
+
+    /*
+        Da ENTER eine echte
+        Nutzerinteraktion war,
+        versuchen wir direkt zu starten.
+    */
+
+    event.target.playVideo();
+
+
+    musicStatus.textContent =
+        "Wird gestartet";
+
+}
+
+
+
+/* ==========================================
+   PLAYER STATUS
+========================================== */
+
+function onPlayerStateChange(event) {
+
+
+    /*
+        YT.PlayerState.PLAYING
+    */
+
+    if (
+        event.data ===
+        YT.PlayerState.PLAYING
+    ) {
+
+        musicPlaying = true;
+
+
+        musicControl.textContent =
+            "❚❚";
+
+
+        musicControl.setAttribute(
+            "aria-label",
+            "Musik pausieren"
         );
 
 
-        /*
-            Datenschutzhinweis ausblenden
-        */
+        musicStatus.textContent =
+            "Wird abgespielt";
 
-        youtubePlaceholder.style.display =
-            "none";
-
-
-        /*
-            Player anzeigen
-        */
-
-        youtubePlayer.style.display =
-            "block";
-
-
-    },
-
-    {
-        once: true
     }
 
+
+    /*
+        PAUSED
+    */
+
+    else if (
+        event.data ===
+        YT.PlayerState.PAUSED
+    ) {
+
+        musicPlaying = false;
+
+
+        musicControl.textContent =
+            "▶";
+
+
+        musicControl.setAttribute(
+            "aria-label",
+            "Musik abspielen"
+        );
+
+
+        musicStatus.textContent =
+            "Pausiert";
+
+    }
+
+
+    /*
+        ENDED
+    */
+
+    else if (
+        event.data ===
+        YT.PlayerState.ENDED
+    ) {
+
+        musicPlaying = false;
+
+
+        musicControl.textContent =
+            "▶";
+
+
+        musicControl.setAttribute(
+            "aria-label",
+            "Musik erneut abspielen"
+        );
+
+
+        musicStatus.textContent =
+            "Beendet";
+
+    }
+
+}
+
+
+
+/* ==========================================
+   PLAY / PAUSE BUTTON
+========================================== */
+
+musicControl.addEventListener(
+    "click",
+    function () {
+
+
+        if (
+            !playerReady ||
+            !player
+        ) {
+
+            return;
+
+        }
+
+
+        if (musicPlaying) {
+
+            player.pauseVideo();
+
+        }
+
+        else {
+
+            player.playVideo();
+
+        }
+
+    }
+);
+
+
+
+/* ==========================================
+   YOUTUBE FEHLER
+========================================== */
+
+function onPlayerError() {
+
+    musicPlaying = false;
+
+
+    musicControl.textContent =
+        "▶";
+
+
+    musicStatus.textContent =
+        "Player konnte nicht geladen werden";
+
+}
+
+
+
+/* ==========================================
+   ENTER SCREEN NACH ANIMATION ENTFERNEN
+========================================== */
+
+enterScreen.addEventListener(
+    "transitionend",
+    function () {
+
+        if (
+            enterScreen.classList.contains(
+                "hidden"
+            )
+        ) {
+
+            enterScreen.style.display =
+                "none";
+
+        }
+
+    }
 );
 
 
