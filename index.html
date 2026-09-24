@@ -9,7 +9,7 @@
 
 <meta
     name="description"
-    content="FussConnaisseur – Gaming, Streaming, Gothic Aesthetic und mehr."
+    content="FussConnaisseur – Gaming, Streaming, Anime und mehr."
 >
 
 <style>
@@ -46,9 +46,6 @@ body {
 
 /* ==========================================
    HINTERGRUNDBILD
-
-   Lege die Datei "background.webp"
-   direkt neben die index.html.
 ========================================== */
 
 .background {
@@ -68,17 +65,12 @@ body {
         url("background.webp");
 
     background-size: cover;
-
-    background-position:
-        center center;
-
+    background-position: center center;
     background-repeat: no-repeat;
 
     transform: scale(1.02);
 }
 
-
-/* zusätzliche Abdunklung */
 
 .background::after {
     content: "";
@@ -92,7 +84,6 @@ body {
             rgba(191, 49, 120, .13),
             transparent 32%
         ),
-
         linear-gradient(
             180deg,
             rgba(0,0,0,.12),
@@ -102,10 +93,7 @@ body {
 
 
 /* ==========================================
-   FALLBACK
-
-   Falls background.webp noch nicht existiert,
-   bleibt trotzdem ein schöner Hintergrund.
+   FALLBACK-HINTERGRUND
 ========================================== */
 
 body::before {
@@ -122,13 +110,11 @@ body::before {
             rgba(142, 26, 88, .32),
             transparent 35%
         ),
-
         radial-gradient(
             circle at 20% 80%,
             rgba(82, 15, 59, .22),
             transparent 35%
         ),
-
         linear-gradient(
             135deg,
             #050407,
@@ -139,7 +125,7 @@ body::before {
 
 
 /* ==========================================
-   PARTICLES
+   PARTIKEL
 ========================================== */
 
 #particles {
@@ -166,7 +152,7 @@ body::before {
 
     box-shadow:
         0 0 8px
-        rgba(235, 124, 181, .55);
+        rgba(235, 124, 181,.55);
 
     animation:
         floatParticle linear infinite;
@@ -208,13 +194,11 @@ body::before {
 header {
     width: 100%;
 
-    padding:
-        28px 5%;
+    padding: 28px 5%;
 
     display: flex;
 
-    justify-content:
-        space-between;
+    justify-content: space-between;
 
     align-items: center;
 
@@ -224,7 +208,9 @@ header {
 }
 
 
-/* LOGO */
+/* ==========================================
+   LOGO
+========================================== */
 
 .logo {
     font-family:
@@ -266,8 +252,7 @@ header {
 
     font-size: .78rem;
 
-    padding:
-        10px 17px;
+    padding: 10px 17px;
 
     border-radius: 30px;
 
@@ -278,8 +263,9 @@ header {
     background:
         rgba(10,7,11,.55);
 
-    backdrop-filter:
-        blur(12px);
+    backdrop-filter: blur(12px);
+
+    -webkit-backdrop-filter: blur(12px);
 
     transition:
         transform .2s,
@@ -289,8 +275,7 @@ header {
 }
 
 .effect-button:hover {
-    transform:
-        translateY(-1px);
+    transform: translateY(-1px);
 
     color: white;
 
@@ -332,11 +317,9 @@ main {
             100%
         );
 
-    padding:
-        50px;
+    padding: 50px;
 
-    border-radius:
-        28px;
+    border-radius: 28px;
 
     background:
         linear-gradient(
@@ -349,11 +332,9 @@ main {
         1px solid
         rgba(255,255,255,.12);
 
-    backdrop-filter:
-        blur(22px);
+    backdrop-filter: blur(22px);
 
-    -webkit-backdrop-filter:
-        blur(22px);
+    -webkit-backdrop-filter: blur(22px);
 
     box-shadow:
         0 35px 100px
@@ -363,12 +344,9 @@ main {
         rgba(255,255,255,.07);
 
     animation:
-        cardEntrance
-        .8s ease;
+        cardEntrance .8s ease;
 }
 
-
-/* pinke Linie oben */
 
 .card::before {
     content: "";
@@ -381,8 +359,7 @@ main {
     width: 115px;
     height: 2px;
 
-    background:
-        #d770a6;
+    background: #d770a6;
 
     box-shadow:
         0 0 12px
@@ -454,7 +431,7 @@ h1 {
 
     white-space: nowrap;
 
-    margin-bottom: 24px;
+    margin-bottom: 27px;
 
     text-shadow:
         0 5px 35px
@@ -475,21 +452,49 @@ h1 span {
 ========================================== */
 
 .description {
-    max-width: 590px;
+    position: relative;
 
-    color: #b7a9b3;
+    max-width: 610px;
 
-    font-size: .96rem;
+    padding-left: 16px;
 
-    line-height: 1.75;
+    margin-bottom: 30px;
 
-    margin-bottom: 28px;
+    color: #c0b2bc;
+
+    font-size: .98rem;
+
+    line-height: 1.85;
+
+    letter-spacing: .05px;
+
+    border-left:
+        1px solid
+        rgba(215,112,166,.32);
+}
+
+.description::before {
+    content: "";
+
+    position: absolute;
+
+    left: -1px;
+    top: 0;
+
+    width: 1px;
+    height: 32px;
+
+    background: #d770a6;
+
+    box-shadow:
+        0 0 10px
+        rgba(215,112,166,.55);
 }
 
 .description strong {
-    color: #eee3ea;
+    color: #f1e6ed;
 
-    font-weight: normal;
+    font-weight: 500;
 }
 
 
@@ -504,15 +509,14 @@ h1 span {
 
     gap: 9px;
 
-    margin-bottom: 32px;
+    margin-bottom: 34px;
 }
 
 .tag {
     padding:
-        7px 12px;
+        7px 13px;
 
-    border-radius:
-        20px;
+    border-radius: 20px;
 
     color: #cdbdc8;
 
@@ -528,6 +532,21 @@ h1 span {
     border:
         1px solid
         rgba(255,255,255,.08);
+
+    transition:
+        color .2s,
+        border-color .2s,
+        background .2s;
+}
+
+.tag:hover {
+    color: #f4d9e8;
+
+    border-color:
+        rgba(215,112,166,.32);
+
+    background:
+        rgba(215,112,166,.055);
 }
 
 
@@ -536,7 +555,7 @@ h1 span {
 ========================================== */
 
 .social-title {
-    color: #897a85;
+    color: #a796a2;
 
     font-size: .65rem;
 
@@ -544,7 +563,7 @@ h1 span {
 
     text-transform: uppercase;
 
-    margin-bottom: 12px;
+    margin-bottom: 14px;
 }
 
 .socials {
@@ -566,16 +585,14 @@ h1 span {
 
     align-items: center;
 
-    justify-content:
-        space-between;
+    justify-content: space-between;
 
     gap: 15px;
 
     padding:
         0 17px;
 
-    border-radius:
-        12px;
+    border-radius: 12px;
 
     color: #d8ccd4;
 
@@ -653,32 +670,271 @@ h1 span {
 
 
 /* ==========================================
-   QUOTE
+   MUSIKPLAYER
+========================================== */
+
+.music-area {
+    position: fixed;
+
+    left: 5%;
+    bottom: 5%;
+
+    z-index: 30;
+
+    width: 330px;
+}
+
+
+.music-card {
+    padding: 16px;
+
+    border-radius: 18px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(24,15,25,.92),
+            rgba(10,7,12,.85)
+        );
+
+    border:
+        1px solid
+        rgba(255,255,255,.10);
+
+    backdrop-filter: blur(18px);
+
+    -webkit-backdrop-filter: blur(18px);
+
+    box-shadow:
+        0 20px 50px
+        rgba(0,0,0,.45);
+}
+
+
+.music-info {
+    display: flex;
+
+    align-items: center;
+
+    gap: 13px;
+
+    margin-bottom: 14px;
+}
+
+
+.music-icon {
+    width: 43px;
+    height: 43px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    border-radius: 50%;
+
+    color: #f1bad7;
+
+    font-size: 1.1rem;
+
+    background:
+        rgba(215,112,166,.10);
+
+    border:
+        1px solid
+        rgba(215,112,166,.25);
+
+    box-shadow:
+        0 0 20px
+        rgba(215,112,166,.08);
+}
+
+
+.music-label {
+    margin-bottom: 3px;
+
+    color: #8e7c89;
+
+    font-size: .52rem;
+
+    letter-spacing: 2.5px;
+}
+
+
+.music-title {
+    color: #f3e8ef;
+
+    font-family:
+        Georgia,
+        serif;
+
+    font-size: 1rem;
+
+    letter-spacing: .5px;
+}
+
+
+.music-artist {
+    margin-top: 2px;
+
+    color: #a995a2;
+
+    font-size: .68rem;
+}
+
+
+/* ==========================================
+   YOUTUBE-HINWEIS
+========================================== */
+
+.youtube-placeholder {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 12px;
+
+    padding-top: 12px;
+
+    border-top:
+        1px solid
+        rgba(255,255,255,.07);
+}
+
+
+.youtube-note {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 3px;
+
+    color: #897985;
+
+    font-size: .58rem;
+
+    line-height: 1.35;
+}
+
+
+.youtube-note strong {
+    color: #bcaab6;
+
+    font-size: .62rem;
+}
+
+
+.youtube-load {
+    flex-shrink: 0;
+
+    cursor: pointer;
+
+    padding:
+        8px 11px;
+
+    border-radius: 20px;
+
+    border:
+        1px solid
+        rgba(215,112,166,.25);
+
+    color: #e3cad7;
+
+    font-family: inherit;
+
+    font-size: .62rem;
+
+    background:
+        rgba(215,112,166,.08);
+
+    transition:
+        transform .2s,
+        color .2s,
+        border-color .2s,
+        background .2s;
+}
+
+
+.youtube-load:hover {
+    color: white;
+
+    border-color:
+        rgba(215,112,166,.65);
+
+    background:
+        rgba(215,112,166,.15);
+
+    transform:
+        translateY(-1px);
+}
+
+
+/* ==========================================
+   EINGEBETTETER YOUTUBE PLAYER
+========================================== */
+
+.youtube-player {
+    display: none;
+
+    margin-top: 12px;
+
+    overflow: hidden;
+
+    border-radius: 12px;
+
+    aspect-ratio: 16 / 9;
+
+    background: #000;
+
+    border:
+        1px solid
+        rgba(255,255,255,.06);
+}
+
+
+.youtube-player iframe {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    border: 0;
+}
+
+
+/* ==========================================
+   ZITAT
 ========================================== */
 
 .quote {
     position: fixed;
 
     right: 6%;
-    bottom: 9%;
+    bottom: 8%;
 
     width:
         min(
-            390px,
-            34vw
+            420px,
+            36vw
         );
 
     color:
-        rgba(232,217,227,.60);
+        rgba(235,220,230,.68);
 
     font-family:
         Georgia,
+        "Times New Roman",
         serif;
 
     font-size:
         clamp(
             1rem,
-            1.4vw,
+            1.35vw,
             1.35rem
         );
 
@@ -690,18 +946,22 @@ h1 span {
 
     text-shadow:
         0 3px 18px
-        rgba(0,0,0,.8);
+        rgba(0,0,0,.9);
 
     pointer-events: none;
 }
 
-.quote span {
+.quote-line {
+    display: block;
+}
+
+.quote-brand {
     display: block;
 
-    margin-top: 9px;
+    margin-top: 11px;
 
     color:
-        rgba(215,112,166,.75);
+        rgba(215,112,166,.8);
 
     font-family:
         Arial,
@@ -712,7 +972,7 @@ h1 span {
 
     font-style: normal;
 
-    letter-spacing: 3px;
+    letter-spacing: 4px;
 
     text-transform: uppercase;
 }
@@ -778,8 +1038,7 @@ body.effects-off .background {
 @media (max-width: 1050px) {
 
     main {
-        justify-content:
-            center;
+        justify-content: center;
 
         padding:
             50px 5% 70px;
@@ -787,6 +1046,11 @@ body.effects-off .background {
 
     .quote {
         display: none;
+    }
+
+    .music-area {
+        left: 5%;
+        bottom: 3%;
     }
 
 }
@@ -799,8 +1063,7 @@ body.effects-off .background {
 @media (max-width: 700px) {
 
     header {
-        padding:
-            20px;
+        padding: 20px;
     }
 
     .logo {
@@ -818,7 +1081,7 @@ body.effects-off .background {
 
     main {
         padding:
-            25px 20px 55px;
+            25px 20px 35px;
 
         min-height: auto;
     }
@@ -827,8 +1090,7 @@ body.effects-off .background {
         padding:
             38px 25px;
 
-        border-radius:
-            22px;
+        border-radius: 22px;
     }
 
     .card::before {
@@ -845,21 +1107,39 @@ body.effects-off .background {
 
         white-space: normal;
 
-        overflow-wrap:
-            anywhere;
+        overflow-wrap: anywhere;
 
-        letter-spacing:
-            -2px;
+        letter-spacing: -2px;
+    }
+
+    .description {
+        padding-left: 13px;
+
+        font-size: .92rem;
+
+        line-height: 1.75;
     }
 
     .socials {
-        grid-template-columns:
-            1fr;
+        grid-template-columns: 1fr;
     }
 
     .background {
         background-position:
             68% center;
+    }
+
+    .music-area {
+        position: relative;
+
+        left: auto;
+        bottom: auto;
+
+        width:
+            calc(100% - 40px);
+
+        margin:
+            0 auto 30px;
     }
 
 }
@@ -877,8 +1157,17 @@ body.effects-off .background {
     }
 
     h1 {
-        font-size:
-            2.4rem;
+        font-size: 2.4rem;
+    }
+
+    .youtube-placeholder {
+        flex-direction: column;
+
+        align-items: stretch;
+    }
+
+    .youtube-load {
+        width: 100%;
     }
 
 }
@@ -951,22 +1240,21 @@ body.effects-off .background {
 
     <p class="description">
 
-        Willkommen in meiner kleinen Ecke
-        des Internets.
-
-        Hier findest du meine
-        <strong>Socials</strong>,
-        Profile und alles,
+        Willkommen in meiner kleinen Ecke des Internets.
+        Hier findest du meine Socials, Profile und alles,
         wo ich sonst so herumgeistere.
 
-        Denkt immer dran:
-        Andere sehen Füße. Ein Connaisseur sieht Kunst.
+        Denk immer dran:
+        Andere sehen Füße.
+        Ein <strong>Connaisseur</strong> sieht Kunst.
 
     </p>
 
 
 
-    <!-- TAGS -->
+    <!-- =====================================
+         TAGS
+    ====================================== -->
 
     <div class="tags">
 
@@ -979,15 +1267,11 @@ body.effects-off .background {
         </span>
 
         <span class="tag">
-            Gothic
-        </span>
-
-        <span class="tag">
             Anime
         </span>
 
         <span class="tag">
-            KohtaKuma
+            Feet
         </span>
 
     </div>
@@ -999,23 +1283,18 @@ body.effects-off .background {
     ====================================== -->
 
     <div class="social-title">
-        FIND ME ONLINE
+        HIER FINDEST DU MICH ONLINE
     </div>
 
 
     <div class="socials">
 
 
-        <!-- ===============================
-             STEAM
-
-             HIER DEINEN STEAM-LINK
-             EINTRAGEN
-        ================================ -->
+        <!-- STEAM -->
 
         <a
             class="social"
-            href="https://steamcommunity.com/id/KohtaKuma/"
+            href="DEIN-STEAM-LINK"
             target="_blank"
             rel="noopener noreferrer"
         >
@@ -1038,13 +1317,11 @@ body.effects-off .background {
 
 
 
-        <!-- ===============================
-             TWITCH
-        ================================ -->
+        <!-- TWITCH -->
 
         <a
             class="social"
-            href="https://www.twitch.tv/kohtakuma"
+            href="DEIN-TWITCH-LINK"
             target="_blank"
             rel="noopener noreferrer"
         >
@@ -1067,13 +1344,11 @@ body.effects-off .background {
 
 
 
-        <!-- ===============================
-             YOUTUBE
-        ================================ -->
+        <!-- YOUTUBE -->
 
         <a
             class="social"
-            href="https://www.youtube.com/@KohtaKuma"
+            href="DEIN-YOUTUBE-LINK"
             target="_blank"
             rel="noopener noreferrer"
         >
@@ -1096,13 +1371,11 @@ body.effects-off .background {
 
 
 
-        <!-- ===============================
-             TIKTOK
-        ================================ -->
+        <!-- TIKTOK -->
 
         <a
             class="social"
-            href="https://www.tiktok.com/@kohtakuma"
+            href="DEIN-TIKTOK-LINK"
             target="_blank"
             rel="noopener noreferrer"
         >
@@ -1125,13 +1398,11 @@ body.effects-off .background {
 
 
 
-        <!-- ===============================
-             DISCORD
-        ================================ -->
+        <!-- DISCORD -->
 
         <a
             class="social"
-            href="https://discord.com/invite/rZM5jnupfB"
+            href="DEIN-DISCORD-LINK"
             target="_blank"
             rel="noopener noreferrer"
         >
@@ -1154,13 +1425,11 @@ body.effects-off .background {
 
 
 
-        <!-- ===============================
-             INSTAGRAM
-        ================================ -->
+        <!-- INSTAGRAM -->
 
         <a
             class="social"
-            href="https://www.instagram.com/derkohtakuma"
+            href="DEIN-INSTAGRAM-LINK"
             target="_blank"
             rel="noopener noreferrer"
         >
@@ -1193,15 +1462,109 @@ body.effects-off .background {
 
 
 <!-- ========================================
+     MUSIK / YOUTUBE
+========================================= -->
+
+<section class="music-area">
+
+    <div class="music-card">
+
+
+        <div class="music-info">
+
+            <span class="music-icon">
+                ♫
+            </span>
+
+
+            <div>
+
+                <div class="music-label">
+                    CURRENT VIBE
+                </div>
+
+                <div class="music-title">
+                    WORSHIP
+                </div>
+
+                <div class="music-artist">
+                    Magnolia Park
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!--
+            YouTube wird an dieser Stelle
+            NOCH NICHT geladen.
+        -->
+
+        <div
+            class="youtube-placeholder"
+            id="youtubePlaceholder"
+        >
+
+            <div class="youtube-note">
+
+                <strong>
+                    YouTube-Inhalt
+                </strong>
+
+                <span>
+                    Der Player wird erst
+                    nach deinem Klick geladen.
+                </span>
+
+            </div>
+
+
+            <button
+                class="youtube-load"
+                id="loadYoutube"
+                type="button"
+            >
+                ▶ YouTube laden
+            </button>
+
+        </div>
+
+
+
+        <!--
+            Hier wird später per JavaScript
+            das YouTube-Iframe eingefügt.
+        -->
+
+        <div
+            class="youtube-player"
+            id="youtubePlayer"
+        ></div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- ========================================
      ZITAT
 ========================================= -->
 
 <div class="quote">
 
-    „Stil beginnt am Kopf.
-    Geschmack manchmal an den Zehenspitzen.“
+    <span class="quote-line">
+        „Stil beginnt am Kopf.
+    </span>
 
-    <span>
+    <span class="quote-line">
+        Geschmack manchmal an den Zehenspitzen.“
+    </span>
+
+    <span class="quote-brand">
         FUSSCONNAISSEUR
     </span>
 
@@ -1270,16 +1633,13 @@ function createParticles() {
         );
 
 
-        /* zufällige Position */
-
         particle.style.left =
             Math.random() * 100 + "%";
 
 
-        /* zufällige Größe */
-
         const size =
             Math.random() * 2.5 + 1;
+
 
         particle.style.width =
             size + "px";
@@ -1288,8 +1648,6 @@ function createParticles() {
             size + "px";
 
 
-        /* zufällige Geschwindigkeit */
-
         particle.style.animationDuration =
             (
                 Math.random() * 12 + 12
@@ -1297,16 +1655,12 @@ function createParticles() {
             + "s";
 
 
-        /* zufälliger Start */
-
         particle.style.animationDelay =
             (
                 Math.random() * -20
             )
             + "s";
 
-
-        /* unterschiedliche Transparenz */
 
         particle.style.opacity =
             Math.random() * .6 + .2;
@@ -1373,11 +1727,6 @@ effectButton.addEventListener(
 
 /* ==========================================
    PLATZHALTER-LINKS ABFANGEN
-
-   Dadurch führen die Buttons nicht
-   versehentlich auf eine kaputte Seite,
-   solange noch kein echter Link
-   eingetragen wurde.
 ========================================== */
 
 document
@@ -1409,6 +1758,114 @@ document
         );
 
     });
+
+
+
+/* ==========================================
+   YOUTUBE PLAYER
+========================================== */
+
+/*
+    Wichtig:
+
+    Beim normalen Aufruf der Website
+    existiert noch KEIN YouTube-Iframe.
+
+    Erst wenn der Besucher auf
+    "YouTube laden" klickt,
+    wird der externe Inhalt eingebunden.
+*/
+
+
+const loadYoutubeButton =
+    document.getElementById(
+        "loadYoutube"
+    );
+
+
+const youtubePlaceholder =
+    document.getElementById(
+        "youtubePlaceholder"
+    );
+
+
+const youtubePlayer =
+    document.getElementById(
+        "youtubePlayer"
+    );
+
+
+loadYoutubeButton.addEventListener(
+    "click",
+    function () {
+
+
+        const iframe =
+            document.createElement(
+                "iframe"
+            );
+
+
+        /*
+            WORSHIP – Magnolia Park
+
+            Datenschutzfreundlichere
+            YouTube-Nocookie-Domain
+        */
+
+        iframe.src =
+            "https://www.youtube-nocookie.com/embed/_7UCOK5Wv-c?controls=1&playsinline=1";
+
+
+        iframe.title =
+            "Magnolia Park – WORSHIP";
+
+
+        iframe.allow =
+            "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
+
+
+        iframe.referrerPolicy =
+            "strict-origin-when-cross-origin";
+
+
+        iframe.allowFullscreen =
+            true;
+
+
+
+        /*
+            Iframe in den Player einsetzen
+        */
+
+        youtubePlayer.appendChild(
+            iframe
+        );
+
+
+        /*
+            Datenschutzhinweis ausblenden
+        */
+
+        youtubePlaceholder.style.display =
+            "none";
+
+
+        /*
+            Player anzeigen
+        */
+
+        youtubePlayer.style.display =
+            "block";
+
+
+    },
+
+    {
+        once: true
+    }
+
+);
 
 
 </script>
