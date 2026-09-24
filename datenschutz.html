@@ -1,0 +1,1139 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Datenschutz | FussConnaisseur</title>
+
+<style>
+
+/* ==========================================
+   GRUNDEINSTELLUNGEN
+========================================== */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    color: #f5eef5;
+
+    background:
+        radial-gradient(
+            circle at 75% 35%,
+            rgba(137, 28, 88, .28),
+            transparent 35%
+        ),
+
+        radial-gradient(
+            circle at 20% 80%,
+            rgba(89, 16, 63, .20),
+            transparent 35%
+        ),
+
+        linear-gradient(
+            135deg,
+            #050407,
+            #140912 50%,
+            #070508
+        );
+
+    overflow-x: hidden;
+}
+
+
+/* ==========================================
+   HINTERGRUND
+========================================== */
+
+.background {
+    position: fixed;
+    inset: 0;
+    z-index: -5;
+    pointer-events: none;
+
+    background:
+        radial-gradient(
+            circle at 75% 40%,
+            rgba(153, 38, 94, .13),
+            transparent 30%
+        );
+}
+
+.background::after {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background:
+        radial-gradient(
+            circle at center,
+            transparent 20%,
+            rgba(0,0,0,.58) 100%
+        );
+}
+
+
+/* ==========================================
+   HEADER
+========================================== */
+
+header {
+    width: 100%;
+
+    padding: 28px 5%;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    position: relative;
+    z-index: 10;
+}
+
+.logo {
+    font-family: Georgia, serif;
+
+    font-size: 1.3rem;
+
+    letter-spacing: 5px;
+
+    font-weight: bold;
+}
+
+.logo span {
+    color: #d770a6;
+}
+
+.back-button {
+    text-decoration: none;
+
+    color: #ddd;
+
+    padding: 10px 18px;
+
+    border-radius: 25px;
+
+    border:
+        1px solid
+        rgba(255,255,255,.13);
+
+    background:
+        rgba(15,10,15,.55);
+
+    backdrop-filter: blur(10px);
+
+    transition: .25s;
+}
+
+.back-button:hover {
+    color: white;
+
+    border-color: #d770a6;
+
+    background:
+        rgba(215,112,166,.08);
+}
+
+
+/* ==========================================
+   MAIN
+========================================== */
+
+main {
+    width:
+        min(
+            900px,
+            calc(100% - 40px)
+        );
+
+    margin:
+        70px auto 100px;
+}
+
+
+/* ==========================================
+   GLASS CARD
+========================================== */
+
+.card {
+    position: relative;
+
+    padding: 55px;
+
+    border-radius: 26px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(26,18,28,.88),
+            rgba(15,10,17,.72)
+        );
+
+    border:
+        1px solid
+        rgba(255,255,255,.12);
+
+    backdrop-filter:
+        blur(22px);
+
+    box-shadow:
+        0 30px 80px rgba(0,0,0,.55),
+        inset 0 1px 0 rgba(255,255,255,.07);
+
+    animation:
+        cardIn .8s ease;
+}
+
+@keyframes cardIn {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0);
+    }
+}
+
+.card::before {
+    content: "";
+
+    position: absolute;
+
+    top: -1px;
+    left: 55px;
+
+    width: 110px;
+    height: 2px;
+
+    background:
+        #d770a6;
+
+    box-shadow:
+        0 0 15px #d770a6,
+        0 0 30px rgba(215,112,166,.4);
+}
+
+
+/* ==========================================
+   TYPOGRAFIE
+========================================== */
+
+.eyebrow {
+    color: #a895a4;
+
+    font-size: .68rem;
+
+    letter-spacing: 5px;
+
+    margin-bottom: 18px;
+}
+
+h1 {
+    font-family:
+        Georgia,
+        serif;
+
+    font-size:
+        clamp(
+            3rem,
+            7vw,
+            5rem
+        );
+
+    line-height: 1;
+
+    font-weight: normal;
+
+    margin-bottom: 18px;
+}
+
+h1 span {
+    color: #d770a6;
+}
+
+.intro {
+    color: #a99ba5;
+
+    line-height: 1.7;
+
+    margin-bottom: 40px;
+}
+
+
+/* ==========================================
+   ABSCHNITTE
+========================================== */
+
+.section {
+    margin-top: 35px;
+
+    padding-top: 30px;
+
+    border-top:
+        1px solid
+        rgba(255,255,255,.07);
+}
+
+.section-title {
+    color: #df9fc1;
+
+    font-family:
+        Georgia,
+        serif;
+
+    font-size: 1.35rem;
+
+    margin-bottom: 18px;
+}
+
+.info {
+    color: #c8bac5;
+
+    line-height: 1.85;
+
+    font-size: .95rem;
+}
+
+.info p {
+    margin-bottom: 15px;
+}
+
+.info strong {
+    color: #f2e6ed;
+
+    font-weight: normal;
+}
+
+
+/* ==========================================
+   LINKS
+========================================== */
+
+.text-link {
+    color: #e7a8ca;
+
+    text-decoration: none;
+
+    transition: .2s;
+}
+
+.text-link:hover {
+    color: #ffd4e9;
+}
+
+
+/* ==========================================
+   HINWEISBOX
+========================================== */
+
+.notice {
+    margin-top: 40px;
+
+    padding: 22px;
+
+    border-radius: 14px;
+
+    border:
+        1px solid
+        rgba(215,112,166,.20);
+
+    background:
+        rgba(215,112,166,.045);
+
+    color: #a99aa5;
+
+    font-size: .83rem;
+
+    line-height: 1.7;
+}
+
+
+/* ==========================================
+   FOOTER
+========================================== */
+
+footer {
+    text-align: center;
+
+    padding:
+        20px 20px 35px;
+
+    color: #6e626b;
+
+    font-size: .75rem;
+}
+
+footer a {
+    color: #93818f;
+
+    text-decoration: none;
+
+    margin: 0 8px;
+}
+
+footer a:hover {
+    color: #d770a6;
+}
+
+
+/* ==========================================
+   MOBILE
+========================================== */
+
+@media (max-width: 650px) {
+
+    header {
+        padding: 20px;
+    }
+
+    main {
+        margin:
+            35px auto 70px;
+    }
+
+    .card {
+        padding:
+            38px 25px;
+    }
+
+    .card::before {
+        left: 25px;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<div class="background"></div>
+
+
+<!-- ========================================
+     HEADER
+========================================= -->
+
+<header>
+
+    <div class="logo">
+        FC<span>✦</span>
+    </div>
+
+    <a
+        class="back-button"
+        href="index.html"
+    >
+        ← Zurück
+    </a>
+
+</header>
+
+
+
+<!-- ========================================
+     DATENSCHUTZ
+========================================= -->
+
+<main>
+
+<section class="card">
+
+
+    <div class="eyebrow">
+        RECHTLICHES · FUSSCONNAISSEUR
+    </div>
+
+
+    <h1>
+        Daten<span>schutz.</span>
+    </h1>
+
+
+    <p class="intro">
+        Informationen über die Verarbeitung
+        personenbezogener Daten beim Besuch
+        dieser Website.
+    </p>
+
+
+
+    <!-- 1. VERANTWORTLICHER -->
+
+    <div class="section">
+
+        <div class="section-title">
+            1. Verantwortlicher
+        </div>
+
+        <div class="info">
+
+            <p>
+                Verantwortlicher für die
+                Datenverarbeitung auf dieser
+                Website ist der im Impressum
+                genannte Anbieter.
+            </p>
+
+            <p>
+                Die vollständigen Kontaktdaten
+                sind im Impressum dieser Website
+                abrufbar.
+            </p>
+
+            <p>
+                <a
+                    class="text-link"
+                    href="impressum.html"
+                >
+                    → Zum Impressum
+                </a>
+            </p>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- 2. HOSTING -->
+
+    <div class="section">
+
+        <div class="section-title">
+            2. Hosting über GitHub Pages
+        </div>
+
+        <div class="info">
+
+            <p>
+                Diese Website wird über
+                GitHub Pages bereitgestellt.
+            </p>
+
+            <p>
+                Anbieter ist GitHub, Inc.,
+                88 Colin P Kelly Jr Street,
+                San Francisco, CA 94107,
+                USA.
+            </p>
+
+            <p>
+                Beim Aufruf dieser Website
+                werden technisch erforderliche
+                Daten verarbeitet.
+            </p>
+
+            <p>
+                GitHub gibt insbesondere an,
+                dass beim Besuch einer über
+                GitHub Pages bereitgestellten
+                Website die IP-Adresse des
+                Besuchers zu Sicherheitszwecken
+                protokolliert und gespeichert
+                wird.
+            </p>
+
+            <p>
+                Darüber hinaus können im Rahmen
+                der Bereitstellung insbesondere
+                technische Nutzungs- und
+                Verbindungsdaten verarbeitet
+                werden, beispielsweise Datum
+                und Uhrzeit einer Anfrage,
+                Geräte- und Browserinformationen
+                sowie Informationen über
+                aufgerufene Inhalte.
+            </p>
+
+            <p>
+                Die Verarbeitung erfolgt zum
+                Zweck der sicheren und
+                zuverlässigen Bereitstellung
+                dieser Website.
+            </p>
+
+            <p>
+                Soweit die Verarbeitung in
+                unserem Verantwortungsbereich
+                erfolgt, stützen wir sie auf
+                Art. 6 Abs. 1 lit. f DSGVO.
+                Unser berechtigtes Interesse
+                liegt in der sicheren,
+                stabilen und technisch
+                funktionsfähigen Bereitstellung
+                unseres Internetauftritts.
+            </p>
+
+            <p>
+                Weitere Informationen zur
+                Datenverarbeitung durch GitHub
+                finden sich in der
+                Datenschutzerklärung von GitHub:
+            </p>
+
+            <p>
+
+                <a
+                    class="text-link"
+                    href="https://docs.github.com/de/site-policy/privacy-policies/github-general-privacy-statement"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    → Datenschutzerklärung von GitHub
+                </a>
+
+            </p>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- 3. DRITTLAND -->
+
+    <div class="section">
+
+        <div class="section-title">
+            3. Datenverarbeitung außerhalb der EU
+        </div>
+
+        <div class="info">
+
+            <p>
+                Im Rahmen der Nutzung von
+                GitHub können personenbezogene
+                Daten auch außerhalb der
+                Europäischen Union bzw. des
+                Europäischen Wirtschaftsraums,
+                insbesondere in den USA,
+                verarbeitet werden.
+            </p>
+
+            <p>
+                Weitere Informationen zu
+                internationalen
+                Datenübermittlungen und den
+                von GitHub eingesetzten
+                Schutzmechanismen können der
+                Datenschutzerklärung von
+                GitHub entnommen werden.
+            </p>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- 4. COOKIES -->
+
+    <div class="section">
+
+        <div class="section-title">
+            4. Cookies und Tracking
+        </div>
+
+        <div class="info">
+
+            <p>
+                Der Betreiber dieser Website
+                verwendet derzeit keine eigenen
+                Analyse-, Werbe- oder
+                Trackingdienste.
+            </p>
+
+            <p>
+                Insbesondere werden auf dieser
+                Website derzeit kein Google
+                Analytics, kein Meta Pixel und
+                keine vergleichbaren
+                Trackingdienste eingesetzt.
+            </p>
+
+            <p>
+                Vom Betreiber werden keine
+                optionalen Tracking-Cookies
+                gesetzt.
+            </p>
+
+            <p>
+                Soweit der Hostinganbieter
+                technisch erforderliche
+                Technologien im Rahmen der
+                Bereitstellung seines Dienstes
+                einsetzt, richtet sich deren
+                Verarbeitung nach den
+                Bedingungen und
+                Datenschutzinformationen des
+                jeweiligen Anbieters.
+            </p>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- 5. SOCIAL LINKS -->
+
+    <div class="section">
+
+        <div class="section-title">
+            5. Links zu sozialen Netzwerken
+            und externen Diensten
+        </div>
+
+        <div class="info">
+
+            <p>
+                Auf dieser Website befinden
+                sich Links zu externen Diensten
+                und Social-Media-Plattformen,
+                beispielsweise Twitch, YouTube,
+                Steam, TikTok, Discord oder
+                Instagram.
+            </p>
+
+            <p>
+                Dabei handelt es sich um
+                gewöhnliche externe Links.
+                Inhalte dieser Anbieter werden
+                derzeit nicht unmittelbar in
+                diese Website eingebettet.
+            </p>
+
+            <p>
+                Beim bloßen Aufruf dieser
+                Website wird deshalb durch
+                diese Links keine Verbindung
+                zu den jeweiligen Plattformen
+                hergestellt.
+            </p>
+
+            <p>
+                Erst wenn ein entsprechender
+                Link angeklickt wird, wird die
+                Website des jeweiligen
+                Drittanbieters aufgerufen.
+                Dabei können personenbezogene
+                Daten, insbesondere die
+                IP-Adresse, an den jeweiligen
+                Anbieter übermittelt werden.
+            </p>
+
+            <p>
+                Für die weitere Verarbeitung
+                personenbezogener Daten auf
+                diesen externen Websites ist
+                grundsätzlich der jeweilige
+                Anbieter verantwortlich.
+            </p>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- 6. KEINE EMBEDS -->
+
+    <div class="section">
+
+        <div class="section-title">
+            6. Keine eingebetteten
+            Drittanbieter-Inhalte
+        </div>
+
+        <div class="info">
+
+            <p>
+                Auf dieser Website werden
+                derzeit keine Videos,
+                Social-Media-Feeds,
+                Karten, Werbeanzeigen oder
+                sonstigen externen Inhalte
+                automatisch von
+                Drittanbieter-Servern geladen.
+            </p>
+
+            <p>
+                Dadurch werden beim normalen
+                Besuch dieser Website keine
+                zusätzlichen Verbindungen zu
+                diesen Diensten allein aufgrund
+                einer solchen Einbettung
+                hergestellt.
+            </p>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- 7. KONTAKT -->
+
+    <div class="section">
+
+        <div class="section-title">
+            7. Kontaktaufnahme
+        </div>
+
+        <div class="info">
+
+            <p>
+                Diese Website selbst stellt
+                derzeit kein Kontaktformular
+                bereit.
+            </p>
+
+            <p>
+                Sofern eine Kontaktaufnahme
+                über die im Impressum genannten
+                Kontaktmöglichkeiten erfolgt,
+                werden die dabei übermittelten
+                personenbezogenen Daten zum
+                Zweck der Bearbeitung der
+                jeweiligen Anfrage verarbeitet.
+            </p>
+
+            <p>
+                Die Rechtsgrundlage richtet
+                sich nach dem Inhalt der
+                Kontaktaufnahme.
+            </p>
+
+            <p>
+                Bei allgemeinen Anfragen kann
+                die Verarbeitung insbesondere
+                auf Art. 6 Abs. 1 lit. f DSGVO
+                beruhen. Unser berechtigtes
+                Interesse besteht in der
+                Bearbeitung der an uns
+                gerichteten Anfrage.
+            </p>
+
+            <p>
+                Soweit die Kontaktaufnahme auf
+                den Abschluss oder die
+                Durchführung eines Vertrags
+                gerichtet ist, erfolgt die
+                Verarbeitung auf Grundlage von
+                Art. 6 Abs. 1 lit. b DSGVO.
+            </p>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- 8. SPEICHERDAUER -->
+
+    <div class="section">
+
+        <div class="section-title">
+            8. Speicherdauer
+        </div>
+
+        <div class="info">
+
+            <p>
+                Personenbezogene Daten werden
+                nur so lange gespeichert, wie
+                dies für den jeweiligen Zweck
+                erforderlich ist oder
+                gesetzliche
+                Aufbewahrungspflichten eine
+                längere Speicherung verlangen.
+            </p>
+
+            <p>
+                Auf die konkrete Speicherdauer
+                der durch GitHub im Rahmen des
+                Hostings verarbeiteten Daten
+                hat der Betreiber dieser
+                Website keinen vollständigen
+                Einfluss.
+            </p>
+
+            <p>
+                Informationen zur
+                Datenverarbeitung und
+                Speicherdauer durch GitHub
+                können den
+                Datenschutzinformationen von
+                GitHub entnommen werden.
+            </p>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- 9. RECHTE -->
+
+    <div class="section">
+
+        <div class="section-title">
+            9. Rechte betroffener Personen
+        </div>
+
+        <div class="info">
+
+            <p>
+                Betroffene Personen haben im
+                Rahmen der gesetzlichen
+                Voraussetzungen insbesondere
+                das Recht auf:
+            </p>
+
+            <p>
+                • Auskunft über die
+                verarbeiteten personenbezogenen
+                Daten,
+            </p>
+
+            <p>
+                • Berichtigung unrichtiger
+                personenbezogener Daten,
+            </p>
+
+            <p>
+                • Löschung personenbezogener
+                Daten,
+            </p>
+
+            <p>
+                • Einschränkung der
+                Verarbeitung,
+            </p>
+
+            <p>
+                • Datenübertragbarkeit, soweit
+                die gesetzlichen
+                Voraussetzungen vorliegen,
+            </p>
+
+            <p>
+                • sowie Widerspruch gegen
+                bestimmte Verarbeitungen.
+            </p>
+
+            <p>
+                Beruht eine Verarbeitung auf
+                einer Einwilligung, besteht
+                außerdem das Recht, diese
+                Einwilligung jederzeit mit
+                Wirkung für die Zukunft zu
+                widerrufen.
+            </p>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- 10. WIDERSPRUCH -->
+
+    <div class="section">
+
+        <div class="section-title">
+            10. Widerspruchsrecht
+        </div>
+
+        <div class="info">
+
+            <p>
+                Soweit personenbezogene Daten
+                auf Grundlage von
+                Art. 6 Abs. 1 lit. f DSGVO
+                verarbeitet werden, besteht
+                unter den Voraussetzungen des
+                Art. 21 DSGVO das Recht,
+                Widerspruch gegen die
+                Verarbeitung einzulegen.
+            </p>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- 11. BESCHWERDE -->
+
+    <div class="section">
+
+        <div class="section-title">
+            11. Beschwerderecht
+        </div>
+
+        <div class="info">
+
+            <p>
+                Betroffene Personen haben
+                außerdem das Recht, sich bei
+                einer zuständigen
+                Datenschutzaufsichtsbehörde
+                über die Verarbeitung ihrer
+                personenbezogenen Daten zu
+                beschweren.
+            </p>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- 12. SSL -->
+
+    <div class="section">
+
+        <div class="section-title">
+            12. Verschlüsselte Übertragung
+        </div>
+
+        <div class="info">
+
+            <p>
+                Diese Website wird über eine
+                verschlüsselte HTTPS-Verbindung
+                bereitgestellt.
+            </p>
+
+            <p>
+                Dadurch werden die zwischen
+                dem Browser und der Website
+                übertragenen Daten während
+                der Übertragung vor einem
+                einfachen Mitlesen durch
+                Dritte geschützt.
+            </p>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- 13. ÄNDERUNGEN -->
+
+    <div class="section">
+
+        <div class="section-title">
+            13. Änderungen dieser
+            Datenschutzerklärung
+        </div>
+
+        <div class="info">
+
+            <p>
+                Diese Datenschutzerklärung wird
+                angepasst, wenn sich die
+                Funktionen dieser Website,
+                die eingesetzten Dienste oder
+                die rechtlichen Anforderungen
+                ändern.
+            </p>
+
+            <p>
+                Insbesondere kann eine
+                Aktualisierung erforderlich
+                werden, wenn zukünftig
+                Analysewerkzeuge,
+                eingebettete Medien,
+                Kontaktformulare oder andere
+                externe Dienste eingesetzt
+                werden.
+            </p>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- STAND -->
+
+    <div class="notice">
+
+        <strong>
+            Stand: September 2026
+        </strong>
+
+        <br><br>
+
+        Aktueller technischer Stand dieser
+        Website: statische Website über
+        GitHub Pages, keine eigenen
+        Analyse- oder Werbetracker,
+        keine eingebetteten
+        Social-Media-Inhalte und
+        kein eigenes Kontaktformular.
+
+    </div>
+
+
+</section>
+
+</main>
+
+
+
+<!-- ========================================
+     FOOTER
+========================================= -->
+
+<footer>
+
+    © 2026 FussConnaisseur
+
+    ·
+
+    <a href="index.html">
+        Startseite
+    </a>
+
+    ·
+
+    <a href="impressum.html">
+        Impressum
+    </a>
+
+</footer>
+
+
+</body>
+</html>
